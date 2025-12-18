@@ -1,0 +1,14 @@
+/* CSS HEX */
+--pale-sky: #6a7683;
+--saffron: #f8c237;
+--tuna: #363b43;
+
+/* SCSS HEX */
+$pale-sky: #6a7683;
+$saffron: #f8c237;
+$tuna: #363b43;
+
+/* SCSS RGB */
+$pale-sky: rgba(106,118,131,1);
+$saffron: rgba(248,194,55,1);
+$tuna: rgba(54,59,67,1);
