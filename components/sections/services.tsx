@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import MobileDevelopmentIllustration from "@/components/illustrations/mobile-development";
 import DesktopDevelopmentIllustration from "@/components/illustrations/desktop-development";
+import BackendDevelopmentIllustration from "@/components/illustrations/backend-development";
 import { ServiceItem } from "./service-item";
 
 interface Service {
@@ -34,7 +35,7 @@ export function Services() {
     {
       title: "Performance Optimization",
       description: "Speed matters. We optimize your applications for Core Web Vitals, reduce bundle sizes, and ensure smooth interactions that keep users engaged.",
-      illustration: <DesktopDevelopmentIllustration />,
+      illustration: <BackendDevelopmentIllustration />,
     },
   ];
 
