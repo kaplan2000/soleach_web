@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CtaBand } from "@/components/sections/cta-band";
+import { PageHero } from "@/components/sections/page-hero";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
@@ -44,81 +46,80 @@ export default async function AboutPage({
       />
 
       {/* Hero */}
-      <section className="brand-glow">
-        <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:py-24 lg:px-8">
-          <span className="inline-flex items-center rounded-full border border-accent/25 bg-accent/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
-            {hero.eyebrow}
-          </span>
-          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            {hero.title}
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            {hero.subtitle}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        subtitle={hero.subtitle}
+      />
 
       {/* Story */}
-      <section className="bg-background py-8 sm:py-12">
+      <section className="bg-background py-12 sm:py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold text-foreground sm:text-3xl">
-            {story.title}
-          </h2>
-          <div className="mt-6 space-y-5">
+          <Reveal>
+            <h2 className="text-2xl font-semibold text-foreground sm:text-3xl">
+              {story.title}
+            </h2>
+          </Reveal>
+          <Stagger className="mt-6 space-y-5" stagger={0.12}>
             {story.paragraphs.map((p, i) => (
-              <p key={i} className="text-base leading-relaxed text-muted">
-                {p}
-              </p>
+              <StaggerItem key={i}>
+                <p className="text-base leading-relaxed text-muted sm:text-lg">
+                  {p}
+                </p>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       {/* Mission & Vision */}
       <section className="bg-background py-12 sm:py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 md:grid-cols-2">
+          <Stagger className="grid gap-6 md:grid-cols-2" stagger={0.14}>
             {[mission, vision].map((block) => (
-              <div
-                key={block.title}
-                className="rounded-2xl border border-border bg-surface p-8"
-              >
-                <h3 className="text-xl font-semibold text-foreground">
-                  {block.title}
-                </h3>
-                <p className="mt-3 text-base leading-relaxed text-muted">
-                  {block.body}
-                </p>
-              </div>
+              <StaggerItem key={block.title} className="h-full">
+                <div className="card-hover h-full rounded-2xl border border-border bg-surface p-8">
+                  <h3 className="text-xl font-semibold text-foreground">
+                    {block.title}
+                  </h3>
+                  <p className="mt-3 text-base leading-relaxed text-muted">
+                    {block.body}
+                  </p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       {/* Values */}
       <section className="bg-surface py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-semibold text-foreground sm:text-3xl">
-            {values.title}
-          </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal>
+            <h2 className="text-center text-2xl font-semibold text-foreground sm:text-3xl">
+              {values.title}
+            </h2>
+          </Reveal>
+          <Stagger
+            className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+            stagger={0.1}
+          >
             {values.items.map((v, i) => (
-              <div
-                key={v.title}
-                className="rounded-2xl border border-border bg-background p-6"
-              >
-                <span className="brand-gradient-text font-display text-3xl font-semibold">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 text-lg font-semibold text-foreground">
-                  {v.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {v.desc}
-                </p>
-              </div>
+              <StaggerItem key={v.title} className="h-full">
+                <div className="card-hover h-full rounded-2xl border border-border bg-background p-6">
+                  <span className="brand-gradient-text font-display text-3xl font-semibold">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-3 text-lg font-semibold text-foreground">
+                    {v.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {v.desc}
+                  </p>
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 

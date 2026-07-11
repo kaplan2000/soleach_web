@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { PageHero } from "@/components/sections/page-hero";
+import { Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
@@ -45,24 +47,16 @@ export default async function ContactPage({
       />
 
       {/* Hero */}
-      <section className="brand-glow">
-        <div className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:py-24 lg:px-8">
-          <span className="inline-flex items-center rounded-full border border-accent/25 bg-accent/5 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-accent">
-            {hero.eyebrow}
-          </span>
-          <h1 className="mt-5 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            {hero.title}
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            {hero.subtitle}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        subtitle={hero.subtitle}
+      />
 
-      <section className="bg-background pb-24">
+      <section className="bg-background pb-24 pt-4">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           {/* Form card */}
-          <div className="overflow-hidden rounded-3xl border border-border bg-surface">
+          <Reveal className="overflow-hidden rounded-3xl border border-border bg-surface" amount={0.1}>
             <div className="flex flex-col gap-4 border-b border-border p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
               <div>
                 <h2 className="text-xl font-semibold text-foreground">
@@ -91,7 +85,7 @@ export default async function ContactPage({
             >
               Yükleniyor…
             </iframe>
-          </div>
+          </Reveal>
 
           {/* Email alternative */}
           <div className="mt-8 flex flex-col items-center gap-2 text-center">
