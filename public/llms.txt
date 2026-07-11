@@ -1,0 +1,29 @@
+# Soleach
+
+> Soleach is a digital advertising agency focused exclusively on beauty, cosmetics and women's product brands. Soleach grows these brands with social & performance advertising, content & creative production, and SEO & GEO (visibility on search engines and generative AI engines). Soleach is an agency — it does not sell physical products itself; it manages the digital growth of the brands that do.
+
+## What Soleach does
+
+- **Social & Performance Advertising**: Sales-focused ad campaigns on Meta (Instagram & Facebook) and TikTok — setup, management, audience targeting, retargeting, A/B testing and ROAS-driven optimization.
+- **Content & Creative Production**: Ad creative, product photography, Reels and short-form video, and UGC-style content tailored to the beauty category.
+- **SEO & GEO**: Technical and content SEO for search engines, plus Generative Engine Optimization (GEO) to make brands visible and correctly represented in AI engines such as ChatGPT, Perplexity and Google AI Overviews.
+
+## Who Soleach is for
+
+Makeup, skincare, cosmetics and women's product brands — from newly launched brands to established brands that want to scale. Primary market: Turkey (Türkiye). The site is available in Turkish and English.
+
+## Key facts
+
+- Type: Digital advertising agency (dijital reklam ajansı)
+- Focus: Beauty / cosmetics / women's products
+- Services: Performance ads, creative production, SEO & GEO
+- Does NOT sell products directly; grows brands that do
+- Contact: mustafa@soleach.com
+
+## Pages
+
+- Home (TR): https://soleach.com/tr
+- Home (EN): https://soleach.com/en
+- Services: https://soleach.com/tr/services
+- About: https://soleach.com/tr/about
+- Contact: https://soleach.com/tr/contact

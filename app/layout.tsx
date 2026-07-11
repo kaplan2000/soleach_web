@@ -1,47 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { siteUrl } from "@/lib/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Soleach Digital Solutions | Freelance Web Development",
-  description: "Professional freelance web development and digital solutions. Building modern, fast, and SEO-optimized websites for businesses and individuals.",
-  openGraph: {
-    title: "Soleach Digital Solutions | Freelance Web Development",
-    description: "Professional freelance web development and digital solutions. Building modern, fast, and SEO-optimized websites for businesses and individuals.",
-    type: "website",
-  },
-  icons: {
-    icon: "/images/sun-logo.svg",
-  },
+  metadataBase: new URL(siteUrl),
+  title: "Soleach | Güzellik Markaları için Dijital Reklam Ajansı",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
+    <html lang="tr" suppressHydrationWarning>
+      <body className={`${fraunces.variable} ${manrope.variable} antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

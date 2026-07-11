@@ -1,116 +1,82 @@
-# Soleach Digital Solutions
+# Soleach — Digital Advertising Agency Website
 
-A clean, modern freelance website built with Next.js 16, TypeScript, and Tailwind CSS 4.
+Bilingual (TR/EN) marketing website for **Soleach**, a digital advertising
+agency focused on beauty, cosmetics and women's product brands. Built with
+Next.js 16, TypeScript and Tailwind CSS 4, statically exported for Cloudflare
+Pages.
 
-## Features
+## Highlights
 
-- ✨ Modern, professional design
-- 🌓 Dark/light theme with system preference detection
-- 📱 Fully responsive
-- ⚡ Static site generation (SSG)
-- 🔍 SEO-optimized with proper metadata
-- ♿ Semantic HTML for accessibility
-- 🚀 Cloudflare Pages compatible
+- 🌸 Brand palette (dusty pink · lilac · violet) derived from the Soleach icon
+- 🌍 Bilingual routing under `/tr` and `/en` (Turkish is the default)
+- 🌓 Light/dark theme with system detection
+- ⚡ Fully static (SSG) — Cloudflare Pages compatible
+- 🔍 SEO **and GEO** ready: per-page metadata, hreflang alternates, JSON-LD
+  (Organization, WebSite, ProfessionalService, FAQPage, Breadcrumb), sitemap,
+  robots and `llms.txt` for generative AI engines
 
 ## Tech Stack
 
-- **Framework**: Next.js 16 (App Router)
+- **Framework**: Next.js 16 (App Router, `output: "export"`)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS 4
-- **Fonts**: Geist Sans & Geist Mono
+- **Fonts**: Fraunces (display) + Manrope (body)
 
 ## Project Structure
 
 ```
 app/
-├── layout.tsx          # Root layout with SEO metadata
-├── page.tsx            # Homepage
-├── globals.css         # Global styles
-├── robots.ts           # Robots.txt configuration
-└── sitemap.ts          # Sitemap configuration
+├── layout.tsx              # Root layout (fonts, theme, <html>)
+├── page.tsx                # "/" -> "/tr" redirect (static-export safe)
+├── icon.svg                # Favicon (brand mark)
+├── robots.ts / sitemap.ts  # Generated robots.txt & sitemap.xml (+ hreflang)
+├── globals.css             # Design tokens + brand utilities
+└── [lang]/                 # tr | en (generateStaticParams)
+    ├── layout.tsx          # Header/Footer + Organization/WebSite JSON-LD
+    ├── page.tsx            # Home
+    ├── services/page.tsx
+    ├── about/page.tsx
+    └── contact/page.tsx    # Embedded Google "welcome" form
+
+lib/
+├── i18n.ts                 # Locales, default, helpers
+├── site.ts                 # Site constants (URL, email, form URL, socials)
+├── dictionaries.ts         # All TR/EN copy (single source of truth)
+├── metadata.ts             # Canonical + hreflang + OG builder
+└── schema.ts               # JSON-LD builders
 
 components/
-├── layout/
-│   ├── header.tsx      # Header with navigation and theme toggle
-│   └── footer.tsx      # Footer with links
-├── sections/
-│   ├── hero.tsx        # Hero section
-│   ├── services.tsx    # Services section
-│   └── contact.tsx     # Contact section
-└── ui/
-    └── theme-toggle.tsx # Theme switcher component
+├── layout/                 # header, footer
+├── home/                   # hero, services-overview, process, why-us, faq
+├── sections/               # cta-band (shared)
+├── ui/                     # logo, service-icon, section-heading, toggles
+└── seo/                    # json-ld
+
+public/
+├── _headers                # Security + CSP (allows Google Forms embed)
+├── _redirects              # "/" -> "/tr/" at the edge
+└── llms.txt                # Agency description for AI crawlers (GEO)
 ```
+
+## Editing content
+
+All copy lives in [`lib/dictionaries.ts`](lib/dictionaries.ts) under the `tr`
+and `en` objects, which share the same `Dictionary` type — so both languages
+stay in sync. Site-wide constants (email, contact form URL, social links) are in
+[`lib/site.ts`](lib/site.ts).
 
 ## Getting Started
 
-Install dependencies:
-
 ```bash
 npm install
+npm run dev      # http://localhost:3000  (redirects to /tr)
 ```
 
-Run the development server:
+## Build & Deploy
 
 ```bash
-npm run dev
+npm run build    # static export to ./out
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
-
-## Building for Production
-
-Build the static site:
-
-```bash
-npm run build
-```
-
-The site will be optimized and ready for deployment. All pages are statically generated at build time.
-
-## Deployment
-
-### Cloudflare Pages
-
-1. Push your code to GitHub
-2. Connect your repository to Cloudflare Pages
-3. Set build command: `npm run build`
-4. Set output directory: `.next`
-5. Deploy!
-
-The site is fully compatible with Cloudflare Pages and requires no special configuration.
-
-## Customization
-
-### Update Content
-
-- **Company name**: Edit `components/layout/header.tsx` and `app/layout.tsx`
-- **Hero section**: Edit `components/sections/hero.tsx`
-- **Services**: Edit the services array in `components/sections/services.tsx`
-- **Contact info**: Edit `components/sections/contact.tsx` and `components/layout/footer.tsx`
-
-### Update SEO
-
-Edit the metadata in `app/layout.tsx`:
-
-```typescript
-export const metadata: Metadata = {
-  title: "Your Title",
-  description: "Your description",
-  // ...
-};
-```
-
-Update the sitemap URL in `app/robots.ts` and `app/sitemap.ts`.
-
-## Theme System
-
-The site supports both light and dark modes:
-
-- Automatically detects system preference
-- Manual toggle button in header
-- Preference saved to localStorage
-- No flash of wrong theme on page load
-
-## License
-
-MIT
+Deploy `./out` to Cloudflare Pages (build command `npm run build`, output
+directory `out`). `_headers` and `_redirects` are picked up automatically.

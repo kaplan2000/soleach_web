@@ -1,0 +1,100 @@
+# Cursor Rules for Soleach Digital Solutions Website
+
+# Stack: Next.js (App Router) + TypeScript + Tailwind CSS
+
+# Hosting: Cloudflare Pages
+
+# Goal: SEO-first, clean, maintainable corporate website
+
+## General Principles
+
+- Prefer simplicity over cleverness
+- Do NOT overengineer
+- Optimize for readability and long-term maintenance
+- Assume the developer is learning Next.js while building
+- Working code > perfect abstractions
+
+## Project Scope
+
+- Corporate / agency website
+- No authentication
+- No complex backend logic
+- Mostly static content (SSG)
+- Minimal client-side interactivity
+- Cloudflare Pages compatible (no Vercel-only features)
+
+## File & Folder Naming
+
+- Use lowercase with dashes for directories (e.g., components/auth-wizard)
+- Use lowercase with dashes for route segments
+- Use PascalCase for React components (e.g., HeroSection.tsx)
+- Use camelCase for variables and functions
+
+## Next.js Rules
+
+- Use App Router only (`/app` directory)
+- Prefer Server Components by default
+- Use `"use client"` ONLY when necessary (forms, animations, state)
+- Avoid unnecessary client-side JavaScript
+- No custom server, no Node-specific APIs
+
+## Rendering Strategy
+
+- Prefer Static Generation (SSG)
+- Avoid runtime SSR unless explicitly required
+- Pages should be build-time renderable
+- Assume edge-friendly execution
+
+## SEO Rules (Very Important)
+
+- Every page must have proper metadata (title, description)
+- Use semantic HTML (header, main, section, footer, article)
+- Headings must be hierarchical (h1 → h2 → h3)
+- Only ONE h1 per page
+- Add Open Graph metadata where relevant
+- Sitemap and robots.txt should be supported
+
+## Styling Rules
+
+- Use Tailwind CSS only
+- No inline styles unless unavoidable
+- Avoid overly complex class chains
+- Prefer readable utility groups
+- Mobile-first responsive design
+
+## TypeScript Rules
+
+- Use TypeScript everywhere (.ts / .tsx)
+- Avoid `any` unless absolutely necessary
+- Do NOT enable overly strict or advanced typing patterns
+- Keep types simple and readable
+- Types should help, not slow down development
+
+## Components
+
+- Components should be small and focused
+- Prefer composition over deep nesting
+- Avoid global state unless necessary
+- Reusable UI components go under `components/ui`
+
+## Performance
+
+- Avoid unnecessary re-renders
+- Avoid large client-side libraries
+- Optimize for Core Web Vitals
+- Images should use Next.js Image when possible
+
+## Cloudflare Pages Compatibility
+
+- Do NOT rely on Vercel-specific features
+- Ensure the project can be statically exported
+- Avoid server-only runtime dependencies
+- Assume Edge-friendly environment
+
+## AI Behavior Expectations
+
+- Generate clean, production-ready code
+- Explain only when necessary
+- Prefer clarity over verbosity
+- If unsure, choose the simpler solution
+- When fixing bugs, explain what changed and why
