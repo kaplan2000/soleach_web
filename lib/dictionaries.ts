@@ -3,6 +3,9 @@ import type { Locale } from "./i18n";
 /**
  * All site copy lives here, keyed by locale. Both dictionaries share the same
  * shape (enforced by the `Dictionary` type) so pages stay in sync across TR/EN.
+ *
+ * Voice: warm, bold, human — a creative partner talking to a founder, not a
+ * corporate brochure. Turkish uses an intimate "sen".
  */
 
 export type ServiceKey = "ads" | "creative" | "seo-geo";
@@ -15,6 +18,13 @@ export interface ServiceContent {
   summary: string;
   features: string[];
   outcome: string;
+}
+
+export interface Stat {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
 }
 
 export interface Dictionary {
@@ -42,8 +52,11 @@ export interface Dictionary {
       ctaPrimary: string;
       ctaSecondary: string;
       note: string;
+      scrollCue: string;
     };
-    stats: { value: string; label: string }[];
+    marquee: string[];
+    stats: Stat[];
+    manifesto: { eyebrow: string; big: string; body: string };
     servicesIntro: { eyebrow: string; title: string; subtitle: string };
     process: {
       eyebrow: string;
@@ -98,135 +111,152 @@ const tr: Dictionary = {
     services: "Hizmetler",
     about: "Hakkımızda",
     contact: "İletişim",
-    cta: "Ücretsiz görüşme",
+    cta: "Hadi tanışalım",
   },
   routes: { services: "services", about: "about", contact: "contact" },
   meta: {
     home: {
       title: "Soleach | Güzellik Markaları için Dijital Reklam Ajansı",
       description:
-        "Soleach; makyaj, kozmetik ve kadın ürünleri markalarını büyüten dijital reklam ajansıdır. Performans reklamları, içerik & kreatif üretim ve SEO & GEO ile satışlarınızı artırıyoruz.",
+        "Güzelliği büyütmek sanat ister. Soleach; makyaj, kozmetik ve kadın ürünleri markalarını performans reklamları, kreatif üretim ve SEO & GEO ile büyütür. Estetiği satışa çeviriyoruz.",
     },
     services: {
       title: "Hizmetler | Soleach Dijital Reklam Ajansı",
       description:
-        "Güzellik ve kozmetik markaları için sosyal medya & performans reklamları, içerik & kreatif üretim ve SEO & GEO hizmetleri.",
+        "Sosyal medya & performans reklamları, içerik & kreatif üretim ve SEO & GEO. Güzellik markanı büyütmek için gereken her şey, tek ekipte.",
     },
     about: {
       title: "Hakkımızda | Soleach",
       description:
-        "Soleach, güzellik ve kadın ürünleri kategorisine odaklanmış bir dijital reklam ajansıdır. Markaların hikâyesini satışa dönüştürüyoruz.",
+        "Biz her işi yapmayız — bir işi çok iyi yaparız. Soleach, güzellik ve kadın ürünleri markalarına adanmış bir dijital reklam ajansı.",
     },
     contact: {
       title: "İletişim | Soleach",
       description:
-        "Markanızı büyütmeye hazır mısınız? Ücretsiz strateji görüşmesi için formu doldurun, 24 saat içinde dönüş yapalım.",
+        "Markanı konuşalım. Formu doldur, 24 saat içinde sana özel bir büyüme planıyla dönelim. Taahhüt yok.",
     },
   },
   home: {
     hero: {
-      eyebrow: "Güzellik · Kozmetik · Kadın ürünleri",
-      title: "Güzellik markanızı",
-      titleAccent: "büyüten dijital ajans",
+      eyebrow: "Güzellik markaları için dijital reklam ajansı",
+      title: "Markanı büyütmek",
+      titleAccent: "de bir sanat.",
       subtitle:
-        "Makyaj, cilt bakımı ve kadın ürünleri markaları için performans reklamları, dikkat çeken kreatif üretim ve arama & yapay zekâ motorlarında görünürlük. Estetiği satışa dönüştürüyoruz.",
-      ctaPrimary: "Ücretsiz strateji görüşmesi",
-      ctaSecondary: "Hizmetleri keşfet",
-      note: "24 saat içinde dönüş · Taahhüt yok",
+        "Makyajdan cilt bakımına — markanı sadece güzel göstermiyoruz. İnsanların aklına kazıyor, sepetine koyuyoruz. Reklam, içerik ve yapay zekâ görünürlüğü; hepsi tek ekipte.",
+      ctaPrimary: "Markanı konuşalım",
+      ctaSecondary: "Neler yapıyoruz?",
+      note: "24 saat içinde dönüyoruz · Taahhüt yok, sürpriz fatura yok",
+      scrollCue: "Keşfet",
     },
-    stats: [
-      { value: "%100", label: "Güzellik kategorisine odak" },
-      { value: "3x", label: "Ortalama reklam getirisi hedefi" },
-      { value: "7/24", label: "Kampanya & performans takibi" },
+    marquee: [
+      "Makyaj",
+      "Cilt Bakımı",
+      "Parfüm",
+      "Saç Bakımı",
+      "Kozmetik",
+      "Ten Bakımı",
+      "Doğal Güzellik",
+      "Vegan Kozmetik",
+      "Güneş Bakımı",
     ],
+    stats: [
+      { value: 100, prefix: "%", label: "Sadece güzellik markaları. Başka hiçbir şey." },
+      { value: 3, suffix: "×", label: "Hedeflediğimiz ortalama reklam getirisi" },
+      { value: 24, suffix: " saat", label: "İçinde ilk yanıtımız sende olur" },
+    ],
+    manifesto: {
+      eyebrow: "Kısaca",
+      big: "Her güzellik markasının bir hikâyesi var. Biz onu satışa çeviriyoruz.",
+      body: "En güzel ürün bile, doğru insanlara ulaşmazsa rafta bekler. Biz markanın hikâyesini alır; kaydırılan bir ekranı durduran, tıklatan ve “bunu almam lazım” dedirten bir şeye dönüştürürüz. Estetik ve performans, aynı masada.",
+    },
     servicesIntro: {
       eyebrow: "Ne yapıyoruz",
-      title: "Markanızı büyüten üç sütun",
+      title: "Markanı büyüten üç güç",
       subtitle:
-        "Reklamdan içeriğe, arama görünürlüğünden yapay zekâ motorlarına kadar; güzellik markanızın büyümesi için ihtiyaç duyduğu her şey tek çatı altında.",
+        "Reklamı sanata, sanatı da satışa çeviriyoruz. Üçü bir arada, tek ekip, tek hedef: büyümen.",
     },
     process: {
       eyebrow: "Nasıl çalışıyoruz",
-      title: "Net, ölçülebilir bir süreç",
+      title: "Tahmin yok. Sadece net bir yol.",
       subtitle:
-        "Tahmine değil, veriye dayalı ilerliyoruz. Her adımda ne yaptığımızı ve neden yaptığımızı görüyorsunuz.",
+        "Her adımda ne yaptığımızı, neden yaptığımızı ve ne getirdiğini görürsün. Sürpriz sevmeyiz — iyi olanları hariç.",
       steps: [
         {
-          title: "Keşif",
-          desc: "Markanızı, ürün gamınızı ve hedef kitlenizi tanıyoruz. Rakip ve pazar analiziyle fırsatları çıkarıyoruz.",
+          title: "Tanışma",
+          desc: "Markanı, ürünlerini ve kime seslendiğini dinliyoruz. Rakipleri ve pazarı okuyup fırsatları masaya koyuyoruz.",
         },
         {
           title: "Strateji",
-          desc: "Bütçe, kanal ve mesaj planını kuruyoruz. Ölçülebilir hedefler ve net bir yol haritası belirliyoruz.",
+          desc: "Bütçe, kanal ve mesaj planını birlikte kuruyoruz. Net hedefler, net bir yol haritası — havada laf yok.",
         },
         {
           title: "Üretim & Yayın",
-          desc: "Reklam kreatiflerini üretip kampanyaları kuruyoruz. Doğru kitleye, doğru mesajla ulaşıyoruz.",
+          desc: "Durduran kreatifleri üretip kampanyaları yayına alıyoruz. Doğru kitleye, doğru anda, doğru sözle.",
         },
         {
           title: "Optimizasyon",
-          desc: "Verileri sürekli izleyip test ediyoruz. Bütçeyi en yüksek getiriye yönlendirip büyümeyi ölçekliyoruz.",
+          desc: "Veriyi sürekli izliyor, test ediyoruz. Bütçeyi en çok kazandıran yere yönlendirip büyümeyi ölçeğe taşıyoruz.",
         },
       ],
     },
     whyUs: {
       eyebrow: "Neden Soleach",
-      title: "Sadece güzellik markalarına odaklanıyoruz",
+      title: "Biz her işi yapmayız. Bir işi çok iyi yaparız.",
       subtitle:
-        "Her sektöre koşan bir ajans değiliz. Güzellik, kozmetik ve kadın ürünleri kategorisinin dilini, estetiğini ve alıcısını biliyoruz.",
+        "Güzellik, kozmetik ve kadın ürünleri. Bu kategorinin dilini, estetiğini ve alıcısını ezbere biliyoruz — çünkü başka bir şeye bakmıyoruz.",
       points: [
         {
-          title: "Kategoriye özel uzmanlık",
-          desc: "Cilt bakımından makyaja kadar kategorinin nasıl satın alındığını biliyor, kreatiflerimizi buna göre kuruyoruz.",
+          title: "Kategoriye adanmışlık",
+          desc: "Cilt bakımından makyaja, bu ürünlerin nasıl arzu edildiğini ve satın alındığını biliyoruz. Kreatifi de ona göre kuruyoruz.",
         },
         {
           title: "Estetik + performans",
-          desc: "Sadece güzel görünen değil, dönüşen içerikler üretiyoruz. Marka imajınızla satışı aynı anda büyütüyoruz.",
+          desc: "Sadece güzel görünen değil; güzel görünüp aynı anda satan işler. Marka imajın da büyür, cironun da.",
         },
         {
-          title: "Şeffaf raporlama",
-          desc: "Harcanan her bütçenin nereye gittiğini ve ne getirdiğini net raporlarla paylaşıyoruz.",
+          title: "Sürpriz fatura yok",
+          desc: "Her kuruşun nereye gittiğini ve ne getirdiğini açık açık gösteririz. Şeffaflık lüks değil, standart.",
         },
         {
-          title: "Yapay zekâ çağına hazır",
-          desc: "Markanızı yalnızca Google'da değil, ChatGPT ve Perplexity gibi AI motorlarında da görünür kılıyoruz.",
+          title: "Yarının aramasına hazır",
+          desc: "Markanı yalnızca Google’da değil; ChatGPT ve Perplexity gibi yapay zekâ motorlarında da görünür kılıyoruz.",
         },
       ],
     },
     faq: {
-      eyebrow: "Sık sorulan sorular",
-      title: "Merak edilenler",
+      eyebrow: "Aklındakiler",
+      title: "Merak ettiklerin",
       items: [
         {
-          q: "Soleach tam olarak ne yapar?",
-          a: "Soleach, güzellik ve kadın ürünleri markalarına odaklanmış bir dijital reklam ajansıdır. Sosyal medya ve performans reklamları yönetiyor, içerik & kreatif üretiyor ve markaları arama motorları ile yapay zekâ motorlarında (SEO & GEO) görünür kılıyoruz.",
+          q: "Soleach tam olarak ne yapıyor?",
+          a: "Soleach, güzellik ve kadın ürünleri markalarına adanmış bir dijital reklam ajansıdır. Sosyal medya ve performans reklamlarını yönetiriz, içerik & kreatif üretiriz ve markaları hem arama motorlarında hem de yapay zekâ motorlarında (SEO & GEO) görünür kılarız.",
         },
         {
-          q: "Ürün satıyor musunuz?",
-          a: "Hayır. Biz ürün satmıyoruz; ürün satan güzellik markalarının dijital büyümesini yönetiyoruz. Reklam, içerik ve görünürlük tarafında markanızın büyüme ortağıyız.",
+          q: "Ürün mü satıyorsunuz?",
+          a: "Hayır. Biz ürün satmıyoruz; ürün satan güzellik markalarının büyümesini yönetiyoruz. Reklam, içerik ve görünürlük tarafında markanın büyüme ortağıyız.",
         },
         {
-          q: "Hangi tür markalarla çalışıyorsunuz?",
-          a: "Makyaj, cilt bakımı, kozmetik ve kadın ürünleri kategorisindeki markalarla çalışıyoruz. Yeni kurulan markalardan büyümek isteyen yerleşik markalara kadar geniş bir yelpazeye hizmet veriyoruz.",
+          q: "Ne tür markalarla çalışıyorsunuz?",
+          a: "Makyaj, cilt bakımı, kozmetik ve kadın ürünleri kategorisindeki markalarla. Yeni doğmuş bir markadan büyümek isteyen yerleşik markalara kadar geniş bir yelpazeye hizmet veriyoruz.",
         },
         {
-          q: "GEO nedir ve neden önemli?",
-          a: "GEO (Generative Engine Optimization), markanızın ChatGPT, Perplexity ve Google AI Overviews gibi üretken yapay zekâ motorlarında doğru şekilde görünmesini sağlar. Tüketiciler artık ürün araştırmasını bu araçlarla yapıyor; GEO ile markanızın bu yanıtlarda yer almasını sağlıyoruz.",
+          q: "GEO nedir, neden önemli?",
+          a: "GEO (Generative Engine Optimization), markanın ChatGPT, Perplexity ve Google AI Overviews gibi üretken yapay zekâ motorlarında doğru şekilde görünmesini sağlar. İnsanlar artık ürün araştırmasını bu araçlarla yapıyor; GEO ile markan bu yanıtların içinde yer alıyor.",
         },
         {
-          q: "Sonuçları nasıl ölçüyorsunuz?",
-          a: "Reklam getirisi (ROAS), edinme başına maliyet, dönüşüm oranı ve marka görünürlüğü gibi net metriklerle ilerliyoruz. Düzenli ve şeffaf raporlarla her kampanyanın performansını paylaşıyoruz.",
+          q: "Başarıyı nasıl ölçüyorsunuz?",
+          a: "Reklam getirisi (ROAS), edinme maliyeti, dönüşüm oranı ve marka görünürlüğü gibi net metriklerle. Her kampanyanın performansını düzenli, anlaşılır raporlarla paylaşıyoruz — grafik güzel olsun diye değil, karar verebilesin diye.",
         },
         {
           q: "Nasıl başlıyoruz?",
-          a: "İletişim formunu doldurmanız yeterli. Ücretsiz bir strateji görüşmesi planlıyor, markanızı dinliyor ve size özel bir büyüme yol haritası sunuyoruz.",
+          a: "Formu doldurman yeterli. Ücretsiz bir tanışma görüşmesi ayarlıyor, markanı dinliyor ve sana özel bir büyüme yol haritası sunuyoruz. Beğenirsen devam ederiz.",
         },
       ],
     },
     ctaBand: {
-      title: "Markanızı büyütmeye hazır mısınız?",
+      title: "Markanı büyütmeye hazır mısın?",
       subtitle:
-        "Ücretsiz strateji görüşmesi için formu doldurun. Markanızı dinleyip size özel bir büyüme planı çıkaralım.",
+        "Bir kahve kadar sürüyor. Formu doldur, markanı dinleyelim ve sana özel bir plan çıkaralım.",
       button: "Hadi başlayalım",
     },
   },
@@ -235,60 +265,57 @@ const tr: Dictionary = {
       key: "ads",
       icon: "ads",
       title: "Sosyal Medya & Performans Reklamları",
-      tagline: "Doğru kitleye, doğru anda ulaşın",
+      tagline: "Doğru insan, doğru an, doğru mesaj.",
       summary:
-        "Meta (Instagram & Facebook) ve TikTok üzerinde satış odaklı reklam kampanyaları kuruyor, yönetiyor ve sürekli optimize ediyoruz. Bütçenizi en yüksek getiriye yönlendiriyoruz.",
+        "Meta (Instagram & Facebook) ve TikTok’ta satış odaklı kampanyalar kuruyor, yönetiyor ve durmadan optimize ediyoruz. Bütçeni tahmine değil, veriye göre en çok kazandıran yere yönlendiriyoruz.",
       features: [
         "Instagram, Facebook ve TikTok reklam yönetimi",
-        "Satış ve dönüşüm odaklı kampanya kurulumu",
-        "Kitle hedefleme, yeniden pazarlama ve huni kurgusu",
-        "A/B testleri ve sürekli optimizasyon",
-        "Şeffaf performans raporlaması (ROAS, CPA)",
+        "Satış ve dönüşüm odaklı kampanya kurgusu",
+        "Kitle hedefleme, yeniden pazarlama ve huni tasarımı",
+        "A/B testleri ve kesintisiz optimizasyon",
+        "Şeffaf performans raporları (ROAS, CPA)",
       ],
-      outcome:
-        "Reklam bütçenizden ölçülebilir, kârlı bir büyüme.",
+      outcome: "Reklam bütçenden ölçülebilir, kârlı bir büyüme.",
     },
     {
       key: "creative",
       icon: "creative",
       title: "İçerik & Kreatif Üretim",
-      tagline: "Durdurup satan görseller",
+      tagline: "Kaydırırken parmağı durduran görseller.",
       summary:
-        "Ürününüzü en iyi şekilde anlatan reklam kreatifleri, Reels ve kısa videolar üretiyoruz. Güzellik kategorisinin estetiğini performansla buluşturuyoruz.",
+        "Ürününü en iyi anlatan reklam kreatifleri, Reels ve kısa videolar üretiyoruz. Güzelliğin estetiğini performansla buluşturuyor; hem markanı yakışıklı gösteriyor hem satıyoruz.",
       features: [
         "Ürün fotoğrafı ve reklam görseli konsepti",
         "Reels, TikTok ve kısa video üretimi",
-        "UGC tarzı, güven veren içerikler",
-        "Marka kimliğine uygun görsel dil",
+        "Güven veren, UGC tarzı içerikler",
+        "Marka kimliğine sadık bir görsel dil",
         "Platforma özel formatlar ve varyasyonlar",
       ],
-      outcome:
-        "İzleyeni durduran, tıklatan ve satın aldıran içerikler.",
+      outcome: "İzleyeni durduran, tıklatan ve satın aldıran içerikler.",
     },
     {
       key: "seo-geo",
       icon: "search",
-      title: "SEO & GEO (Yapay Zekâ Görünürlüğü)",
-      tagline: "Google'da ve AI motorlarında bulunun",
+      title: "SEO & GEO — Yapay Zekâ Görünürlüğü",
+      tagline: "Google’da da, yapay zekâda da seni bulsunlar.",
       summary:
-        "Markanızı hem geleneksel arama motorlarında (SEO) hem de ChatGPT, Perplexity gibi üretken yapay zekâ motorlarında (GEO) görünür kılıyoruz. Geleceğin aramasına bugünden hazırlanın.",
+        "Markanı hem klasik arama motorlarında (SEO) hem de ChatGPT, Perplexity gibi üretken yapay zekâ motorlarında (GEO) görünür kılıyoruz. Aramanın geleceğine bugünden hazır ol.",
       features: [
         "Teknik ve içerik odaklı SEO",
-        "GEO: AI motorlarında marka görünürlüğü",
+        "GEO: yapay zekâ motorlarında marka görünürlüğü",
         "Yapılandırılmış veri ve zengin sonuç kurgusu",
         "Anahtar kelime ve içerik stratejisi",
         "Ürün ve kategori sayfası optimizasyonu",
       ],
-      outcome:
-        "Müşteriler markanızı ararken ve AI'a sorarken sizi bulur.",
+      outcome: "Müşterin ararken de, yapay zekâya sorarken de seni bulur.",
     },
   ],
   servicesPage: {
     hero: {
       eyebrow: "Hizmetler",
-      title: "Güzellik markanızı büyüten hizmetler",
+      title: "Markanı büyüten her şey, tek ekipte.",
       subtitle:
-        "Reklamdan içeriğe, aramadan yapay zekâ görünürlüğüne kadar; markanızın büyümesi için gereken her şey.",
+        "Reklamdan içeriğe, aramadan yapay zekâ görünürlüğüne. Parçalı ajanslarla uğraşma — hepsi burada.",
     },
     featuresLabel: "Neler dahil",
     outcomeLabel: "Sonuç",
@@ -296,44 +323,44 @@ const tr: Dictionary = {
   aboutPage: {
     hero: {
       eyebrow: "Hakkımızda",
-      title: "Güzellik markalarının büyüme ortağı",
+      title: "Güzellik markalarının büyüme ortağı.",
       subtitle:
-        "Soleach, güzellik ve kadın ürünleri kategorisine odaklanmış bir dijital reklam ajansıdır. Estetiği ve performansı aynı masada buluşturuyoruz.",
+        "Estetiği ve performansı aynı masaya oturtuyoruz. Çünkü güzellik markası büyütmek, ikisini birden ister.",
     },
     story: {
       title: "Hikâyemiz",
       paragraphs: [
-        "Soleach, güzellik markalarının dijitalde hak ettiği yeri almasını sağlamak için kuruldu. Bu kategorinin başka hiçbir şeye benzemediğini biliyoruz: burada estetik kadar güven, görsel kadar sonuç önemli.",
-        "Her sektöre koşan genel bir ajans değiliz. Yalnızca makyaj, cilt bakımı, kozmetik ve kadın ürünleri markalarıyla çalışıyoruz. Bu odak, kategorinin dilini, alıcısını ve satın alma yolculuğunu derinlemesine tanımamızı sağlıyor.",
-        "Reklamı sanata, sanatı da satışa dönüştürüyoruz. Amacımız markanızı yalnızca güzel göstermek değil; sürdürülebilir, ölçülebilir bir büyüme yaratmak.",
+        "Soleach, güzellik markalarının dijitalde hak ettiği yeri alması için doğdu. Bu kategorinin başka hiçbir şeye benzemediğini biliyoruz: burada estetik kadar güven, görsel kadar sonuç önemli.",
+        "Biz her sektöre koşan genel bir ajans değiliz. Yalnızca makyaj, cilt bakımı, kozmetik ve kadın ürünleri markalarıyla çalışıyoruz. Bu odak, kategorinin dilini, alıcısını ve satın alma yolculuğunu ezbere bilmemizi sağlıyor.",
+        "Reklamı sanata, sanatı da satışa çeviriyoruz. Amacımız markanı sadece güzel göstermek değil; sürdürülebilir, ölçülebilir bir büyüme yaratmak. Kısacası: senin kazanman, bizim işimiz.",
       ],
     },
     mission: {
       title: "Misyonumuz",
-      body: "Güzellik markalarını, doğru kitleyle buluşturan ve satışa dönüşen dijital kampanyalarla büyütmek.",
+      body: "Güzellik markalarını, doğru kitleyle buluşturan ve gerçekten satışa dönüşen dijital kampanyalarla büyütmek.",
     },
     vision: {
       title: "Vizyonumuz",
-      body: "Güzellik kategorisinde akla ilk gelen dijital büyüme ortağı olmak; hem klasik aramada hem de yapay zekâ çağında markaları görünür kılmak.",
+      body: "Güzellik kategorisinde akla ilk gelen büyüme ortağı olmak; markaları hem klasik aramada hem de yapay zekâ çağında bir adım öne taşımak.",
     },
     values: {
       title: "Değerlerimiz",
       items: [
         {
           title: "Odak",
-          desc: "Tek bir kategoriye odaklanıyoruz ve o kategoride en iyisi olmak için çalışıyoruz.",
+          desc: "Tek bir kategoriye adanıyoruz ve orada en iyisi olmak için çalışıyoruz.",
         },
         {
           title: "Şeffaflık",
-          desc: "Her bütçenin nereye gittiğini ve ne getirdiğini açıkça paylaşıyoruz.",
+          desc: "Her bütçenin nereye gittiğini ve ne getirdiğini saklamadan gösteririz.",
         },
         {
           title: "Estetik + veri",
-          desc: "Güzel görüneni değil, güzel görünüp aynı zamanda satanı üretiyoruz.",
+          desc: "Güzel görüneni değil; güzel görünüp aynı zamanda satanı üretiriz.",
         },
         {
-          title: "Geleceğe hazır",
-          desc: "Aramanın ve tüketici davranışının nasıl değiştiğini takip edip markanızı öne taşıyoruz.",
+          title: "Meraklıyız",
+          desc: "Aramanın ve tüketici davranışının nasıl değiştiğini takip eder, markanı öne taşırız.",
         },
       ],
     },
@@ -341,163 +368,181 @@ const tr: Dictionary = {
   contactPage: {
     hero: {
       eyebrow: "İletişim",
-      title: "Markanızı birlikte büyütelim",
+      title: "Markanı birlikte büyütelim.",
       subtitle:
-        "Aşağıdaki formu doldurun, markanızı dinleyelim ve size özel bir büyüme yol haritası çıkaralım. 24 saat içinde dönüş yapıyoruz.",
+        "Aşağıdaki formu doldur, markanı dinleyelim ve sana özel bir büyüme yol haritası çıkaralım. 24 saat içinde dönüyoruz.",
     },
-    formTitle: "Ücretsiz strateji görüşmesi",
+    formTitle: "Ücretsiz tanışma görüşmesi",
     formSubtitle:
-      "Markanız hakkında birkaç soruya yanıt verin; ihtiyacınıza en uygun planla size dönelim.",
+      "Markan hakkında birkaç soruya yanıt ver; sana en uygun planla geri dönelim.",
     formButton: "Formu yeni sekmede aç",
     emailTitle: "E-posta",
-    emailDesc: "Formu tercih etmiyorsanız doğrudan e-posta da gönderebilirsiniz.",
+    emailDesc: "Form yerine doğrudan yazmak istersen, kapımız açık.",
     orLabel: "veya",
   },
   footer: {
-    tagline: "Güzellik ve kadın ürünleri markaları için dijital reklam ajansı.",
+    tagline:
+      "Güzellik ve kadın ürünleri markaları için dijital reklam ajansı. Estetiği satışa çeviriyoruz.",
     servicesHeading: "Hizmetler",
     companyHeading: "Kurumsal",
-    followHeading: "Takip edin",
+    followHeading: "Takip et",
     rights: "Tüm hakları saklıdır.",
   },
 };
 
 const en: Dictionary = {
-  brandTagline: "Digital ad agency for beauty brands",
+  brandTagline: "Digital advertising agency for beauty brands",
   nav: {
     home: "Home",
     services: "Services",
     about: "About",
     contact: "Contact",
-    cta: "Free consultation",
+    cta: "Let's talk",
   },
   routes: { services: "services", about: "about", contact: "contact" },
   meta: {
     home: {
       title: "Soleach | Digital Advertising Agency for Beauty Brands",
       description:
-        "Soleach is a digital advertising agency that grows makeup, cosmetics and women's product brands with performance ads, content & creative production, and SEO & GEO.",
+        "Growing a beauty brand is an art. Soleach grows makeup, cosmetics and women's product brands with performance ads, creative production and SEO & GEO. We turn aesthetics into sales.",
     },
     services: {
       title: "Services | Soleach Digital Advertising Agency",
       description:
-        "Social & performance advertising, content & creative production, and SEO & GEO for beauty and cosmetics brands.",
+        "Social & performance advertising, content & creative production, and SEO & GEO — everything you need to grow your beauty brand, in one team.",
     },
     about: {
       title: "About | Soleach",
       description:
-        "Soleach is a digital advertising agency focused on the beauty and women's products category. We turn brand stories into sales.",
+        "We don't do everything — we do one thing exceptionally well. Soleach is a digital advertising agency devoted to beauty and women's product brands.",
     },
     contact: {
       title: "Contact | Soleach",
       description:
-        "Ready to grow your brand? Fill out the form for a free strategy call and we'll get back to you within 24 hours.",
+        "Let's talk about your brand. Fill out the form and we'll come back within 24 hours with a plan made for you. No commitment.",
     },
   },
   home: {
     hero: {
-      eyebrow: "Beauty · Cosmetics · Women's products",
-      title: "The digital agency that",
-      titleAccent: "grows your beauty brand",
+      eyebrow: "Digital advertising agency for beauty brands",
+      title: "Growing your brand",
+      titleAccent: "is an art.",
       subtitle:
-        "Performance advertising, scroll-stopping creative, and visibility across search and AI engines for makeup, skincare and women's product brands. We turn aesthetics into sales.",
-      ctaPrimary: "Free strategy call",
-      ctaSecondary: "Explore services",
-      note: "Reply within 24 hours · No commitment",
+        "From makeup to skincare — we don't just make your brand look good. We make it unforgettable, and we put it in the cart. Advertising, content and AI visibility, all in one team.",
+      ctaPrimary: "Let's talk about your brand",
+      ctaSecondary: "What we do",
+      note: "We reply within 24 hours · No commitment, no surprise invoices",
+      scrollCue: "Explore",
     },
-    stats: [
-      { value: "100%", label: "Focused on beauty" },
-      { value: "3x", label: "Target return on ad spend" },
-      { value: "24/7", label: "Campaign & performance tracking" },
+    marquee: [
+      "Makeup",
+      "Skincare",
+      "Fragrance",
+      "Haircare",
+      "Cosmetics",
+      "Complexion",
+      "Clean Beauty",
+      "Vegan Cosmetics",
+      "Sun Care",
     ],
+    stats: [
+      { value: 100, prefix: "", suffix: "%", label: "Beauty brands only. Nothing else." },
+      { value: 3, suffix: "×", label: "Average return on ad spend we aim for" },
+      { value: 24, suffix: "h", label: "Until our first reply lands in your inbox" },
+    ],
+    manifesto: {
+      eyebrow: "In short",
+      big: "Every beauty brand has a story. We turn yours into sales.",
+      body: "Even the most beautiful product waits on the shelf if it never reaches the right people. We take your story and turn it into something that stops a scrolling thumb, earns the click and says \"I need this.\" Aesthetics and performance, at the same table.",
+    },
     servicesIntro: {
       eyebrow: "What we do",
-      title: "Three pillars that grow your brand",
+      title: "Three forces that grow your brand",
       subtitle:
-        "From advertising to content, from search visibility to AI engines — everything your beauty brand needs to grow, under one roof.",
+        "We turn advertising into art, and art into sales. Three in one — one team, one goal: your growth.",
     },
     process: {
       eyebrow: "How we work",
-      title: "A clear, measurable process",
+      title: "No guesswork. Just a clear path.",
       subtitle:
-        "We move on data, not guesswork. At every step you see exactly what we do and why.",
+        "At every step you see what we do, why we do it and what it returns. We don't like surprises — except the good ones.",
       steps: [
         {
-          title: "Discovery",
-          desc: "We get to know your brand, your product range and your audience, then map opportunities through competitor and market analysis.",
+          title: "Get to know you",
+          desc: "We listen to your brand, your products and who you speak to, then read the market and competitors to put opportunities on the table.",
         },
         {
           title: "Strategy",
-          desc: "We build your budget, channel and messaging plan with measurable goals and a clear roadmap.",
+          desc: "We build the budget, channel and messaging plan together. Clear goals, a clear roadmap — no fluff.",
         },
         {
           title: "Production & Launch",
-          desc: "We produce the creative and launch the campaigns, reaching the right audience with the right message.",
+          desc: "We produce scroll-stopping creative and launch the campaigns — right audience, right moment, right words.",
         },
         {
           title: "Optimization",
-          desc: "We continuously track and test, steering budget toward the highest return and scaling what works.",
+          desc: "We track and test relentlessly, steering budget to what earns most and taking your growth to scale.",
         },
       ],
     },
     whyUs: {
       eyebrow: "Why Soleach",
-      title: "We focus only on beauty brands",
+      title: "We don't do everything. We do one thing brilliantly.",
       subtitle:
-        "We're not an agency that chases every industry. We know the language, the aesthetics and the buyer of the beauty, cosmetics and women's products category.",
+        "Beauty, cosmetics and women's products. We know this category's language, aesthetics and buyer by heart — because we look at nothing else.",
       points: [
         {
-          title: "Category expertise",
-          desc: "From skincare to makeup, we understand how the category is bought and build our creative around it.",
+          title: "Devoted to the category",
+          desc: "From skincare to makeup, we understand how these products are desired and bought — and we build the creative around it.",
         },
         {
           title: "Aesthetics + performance",
-          desc: "We produce content that doesn't just look good but converts, growing your brand image and sales at once.",
+          desc: "Not just work that looks good, but work that looks good and sells. Your brand image grows, and so does revenue.",
         },
         {
-          title: "Transparent reporting",
-          desc: "We share exactly where every budget goes and what it returns, with clear reports.",
+          title: "No surprise invoices",
+          desc: "We show exactly where every cent goes and what it returns. Transparency isn't a luxury — it's the standard.",
         },
         {
-          title: "Ready for the AI era",
-          desc: "We make your brand visible not only on Google but also on AI engines like ChatGPT and Perplexity.",
+          title: "Ready for tomorrow's search",
+          desc: "We make your brand visible not only on Google, but on AI engines like ChatGPT and Perplexity too.",
         },
       ],
     },
     faq: {
-      eyebrow: "Frequently asked questions",
+      eyebrow: "On your mind",
       title: "Good to know",
       items: [
         {
           q: "What exactly does Soleach do?",
-          a: "Soleach is a digital advertising agency focused on beauty and women's product brands. We manage social and performance advertising, produce content & creative, and make brands visible on search and AI engines (SEO & GEO).",
+          a: "Soleach is a digital advertising agency devoted to beauty and women's product brands. We manage social and performance advertising, produce content & creative, and make brands visible on both search engines and AI engines (SEO & GEO).",
         },
         {
           q: "Do you sell products?",
-          a: "No. We don't sell products; we manage the digital growth of beauty brands that do. We're your growth partner across advertising, content and visibility.",
+          a: "No. We don't sell products; we grow the beauty brands that do. Across advertising, content and visibility, we're your growth partner.",
         },
         {
           q: "What kind of brands do you work with?",
-          a: "We work with brands in the makeup, skincare, cosmetics and women's products category — from newly launched brands to established ones looking to scale.",
+          a: "Brands in makeup, skincare, cosmetics and women's products — from newly launched brands to established ones ready to scale.",
         },
         {
-          q: "What is GEO and why does it matter?",
-          a: "GEO (Generative Engine Optimization) ensures your brand appears correctly in generative AI engines such as ChatGPT, Perplexity and Google AI Overviews. Consumers now research products with these tools; GEO makes sure your brand shows up in those answers.",
+          q: "What is GEO, and why does it matter?",
+          a: "GEO (Generative Engine Optimization) makes sure your brand shows up correctly in generative AI engines like ChatGPT, Perplexity and Google AI Overviews. People now research products with these tools; GEO puts your brand inside those answers.",
         },
         {
-          q: "How do you measure results?",
-          a: "We move on clear metrics: return on ad spend (ROAS), cost per acquisition, conversion rate and brand visibility. We share the performance of every campaign with regular, transparent reports.",
+          q: "How do you measure success?",
+          a: "With clear metrics: return on ad spend (ROAS), cost per acquisition, conversion rate and brand visibility. We share every campaign's performance in regular, readable reports — not to look pretty, but so you can decide.",
         },
         {
-          q: "How do we get started?",
-          a: "Just fill out the contact form. We'll schedule a free strategy call, listen to your brand, and present a growth roadmap tailored to you.",
+          q: "How do we start?",
+          a: "Just fill out the form. We'll set up a free intro call, listen to your brand, and present a growth roadmap made for you. If you like it, we keep going.",
         },
       ],
     },
     ctaBand: {
       title: "Ready to grow your brand?",
       subtitle:
-        "Fill out the form for a free strategy call. Let's listen to your brand and build a growth plan made for you.",
+        "It takes about as long as a coffee. Fill out the form, let us listen to your brand and build a plan made just for you.",
       button: "Let's get started",
     },
   },
@@ -506,15 +551,15 @@ const en: Dictionary = {
       key: "ads",
       icon: "ads",
       title: "Social & Performance Advertising",
-      tagline: "Reach the right audience at the right moment",
+      tagline: "Right person, right moment, right message.",
       summary:
-        "We build, manage and continuously optimize sales-focused ad campaigns on Meta (Instagram & Facebook) and TikTok, steering your budget toward the highest return.",
+        "We build, manage and relentlessly optimize sales-focused campaigns on Meta (Instagram & Facebook) and TikTok — steering your budget by data, not guesswork, to whatever earns most.",
       features: [
         "Instagram, Facebook and TikTok ad management",
-        "Sales- and conversion-focused campaign setup",
+        "Sales- and conversion-focused campaign design",
         "Audience targeting, retargeting and funnel design",
-        "A/B testing and continuous optimization",
-        "Transparent performance reporting (ROAS, CPA)",
+        "A/B testing and non-stop optimization",
+        "Transparent performance reports (ROAS, CPA)",
       ],
       outcome: "Measurable, profitable growth from your ad budget.",
     },
@@ -522,13 +567,13 @@ const en: Dictionary = {
       key: "creative",
       icon: "creative",
       title: "Content & Creative Production",
-      tagline: "Visuals that stop the scroll and sell",
+      tagline: "Visuals that stop the thumb.",
       summary:
-        "We produce ad creative, Reels and short-form videos that show your product at its best — pairing the aesthetics of the beauty category with performance.",
+        "We produce ad creative, Reels and short-form video that show your product at its best — pairing the aesthetics of beauty with performance. We make your brand look gorgeous and sell.",
       features: [
         "Product photography and ad creative concepts",
         "Reels, TikTok and short-form video production",
-        "UGC-style, trust-building content",
+        "Trust-building, UGC-style content",
         "A visual language true to your brand identity",
         "Platform-specific formats and variations",
       ],
@@ -537,10 +582,10 @@ const en: Dictionary = {
     {
       key: "seo-geo",
       icon: "search",
-      title: "SEO & GEO (AI Visibility)",
-      tagline: "Be found on Google and AI engines",
+      title: "SEO & GEO — AI Visibility",
+      tagline: "Be found on Google and in AI.",
       summary:
-        "We make your brand visible both on traditional search engines (SEO) and on generative AI engines like ChatGPT and Perplexity (GEO). Prepare today for the search of tomorrow.",
+        "We make your brand visible both on classic search engines (SEO) and on generative AI engines like ChatGPT and Perplexity (GEO). Get ready today for the search of tomorrow.",
       features: [
         "Technical and content-driven SEO",
         "GEO: brand visibility on AI engines",
@@ -554,9 +599,9 @@ const en: Dictionary = {
   servicesPage: {
     hero: {
       eyebrow: "Services",
-      title: "Services that grow your beauty brand",
+      title: "Everything that grows your brand, in one team.",
       subtitle:
-        "From advertising to content, from search to AI visibility — everything your brand needs to grow.",
+        "From advertising to content, from search to AI visibility. Stop juggling scattered agencies — it's all here.",
     },
     featuresLabel: "What's included",
     outcomeLabel: "Outcome",
@@ -564,43 +609,43 @@ const en: Dictionary = {
   aboutPage: {
     hero: {
       eyebrow: "About",
-      title: "The growth partner for beauty brands",
+      title: "The growth partner for beauty brands.",
       subtitle:
-        "Soleach is a digital advertising agency focused on the beauty and women's products category. We bring aesthetics and performance to the same table.",
+        "We sit aesthetics and performance at the same table — because growing a beauty brand takes both.",
     },
     story: {
       title: "Our story",
       paragraphs: [
-        "Soleach was founded to help beauty brands claim the place they deserve in the digital world. We know this category is like no other: here, trust matters as much as aesthetics, and results matter as much as visuals.",
-        "We're not a generic agency chasing every industry. We work only with makeup, skincare, cosmetics and women's product brands. That focus lets us deeply understand the category's language, its buyer and its purchase journey.",
-        "We turn advertising into art, and art into sales. Our goal isn't just to make your brand look beautiful — it's to create sustainable, measurable growth.",
+        "Soleach was born to help beauty brands claim the place they deserve online. We know this category is like no other: here, trust matters as much as aesthetics, and results matter as much as visuals.",
+        "We're not a generic agency chasing every industry. We work only with makeup, skincare, cosmetics and women's product brands. That focus lets us know the category's language, its buyer and its purchase journey by heart.",
+        "We turn advertising into art, and art into sales. Our goal isn't just to make your brand look beautiful — it's to create sustainable, measurable growth. Put simply: your winning is our job.",
       ],
     },
     mission: {
       title: "Our mission",
-      body: "To grow beauty brands with digital campaigns that connect them to the right audience and convert into sales.",
+      body: "To grow beauty brands with digital campaigns that connect them to the right audience and truly convert into sales.",
     },
     vision: {
       title: "Our vision",
-      body: "To be the first-choice digital growth partner in the beauty category — making brands visible in both classic search and the AI era.",
+      body: "To be the first name that comes to mind for growth in beauty — moving brands a step ahead in both classic search and the AI era.",
     },
     values: {
       title: "Our values",
       items: [
         {
           title: "Focus",
-          desc: "We focus on a single category and work to be the best at it.",
+          desc: "We devote ourselves to a single category and work to be the best at it.",
         },
         {
           title: "Transparency",
-          desc: "We openly share where every budget goes and what it returns.",
+          desc: "We show, without hiding, where every budget goes and what it returns.",
         },
         {
           title: "Aesthetics + data",
           desc: "We don't produce what merely looks good, but what looks good and sells.",
         },
         {
-          title: "Future-ready",
+          title: "Curious",
           desc: "We track how search and consumer behavior change, and push your brand ahead.",
         },
       ],
@@ -609,23 +654,24 @@ const en: Dictionary = {
   contactPage: {
     hero: {
       eyebrow: "Contact",
-      title: "Let's grow your brand together",
+      title: "Let's grow your brand together.",
       subtitle:
         "Fill out the form below, let us listen to your brand, and we'll build a growth roadmap made for you. We reply within 24 hours.",
     },
-    formTitle: "Free strategy call",
+    formTitle: "Free intro call",
     formSubtitle:
       "Answer a few questions about your brand and we'll come back with the plan that fits you best.",
     formButton: "Open form in a new tab",
     emailTitle: "Email",
-    emailDesc: "If you'd rather not use the form, you can email us directly.",
+    emailDesc: "Prefer writing directly instead of the form? Our door is open.",
     orLabel: "or",
   },
   footer: {
-    tagline: "A digital advertising agency for beauty and women's product brands.",
+    tagline:
+      "A digital advertising agency for beauty and women's product brands. We turn aesthetics into sales.",
     servicesHeading: "Services",
     companyHeading: "Company",
-    followHeading: "Follow us",
+    followHeading: "Follow",
     rights: "All rights reserved.",
   },
 };

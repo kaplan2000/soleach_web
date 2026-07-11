@@ -81,7 +81,9 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           {stats.map((s) => (
             <div key={s.label} className="bg-surface px-6 py-8 text-center">
               <dt className="brand-gradient-text text-4xl font-semibold">
+                {s.prefix}
                 {s.value}
+                {s.suffix}
               </dt>
               <dd className="mt-2 text-sm text-muted">{s.label}</dd>
             </div>
