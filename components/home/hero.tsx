@@ -47,7 +47,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             <div className="absolute inset-0 brand-gradient opacity-90" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="rounded-full bg-white/15 p-8 backdrop-blur-sm ring-1 ring-white/25">
-                <Logo withWordmark={false} className="[&_svg]:h-24 [&_svg]:w-24" />
+                <Logo withWordmark={false} markClassName="h-28 w-28" />
               </div>
             </div>
             {/* Floating tags */}
