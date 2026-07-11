@@ -16,7 +16,11 @@ export function organizationSchema(locale: Locale) {
     email: siteConfig.email,
     description: dict.brandTagline,
     logo: `${siteUrl}/icon.svg`,
-    sameAs: [siteConfig.social.instagram, siteConfig.social.linkedin],
+    sameAs: [
+      siteConfig.social.instagram,
+      siteConfig.social.tiktok,
+      siteConfig.social.facebook,
+    ],
     areaServed: "TR",
     knowsAbout: [
       "Beauty marketing",

@@ -97,12 +97,22 @@ export function Footer({
               </li>
               <li>
                 <a
-                  href={siteConfig.social.linkedin}
+                  href={siteConfig.social.tiktok}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted transition-colors hover:text-accent"
                 >
-                  LinkedIn
+                  TikTok
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted transition-colors hover:text-accent"
+                >
+                  Facebook
                 </a>
               </li>
             </ul>
