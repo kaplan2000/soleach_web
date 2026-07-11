@@ -1,4 +1,5 @@
 import { SectionHeading } from "@/components/ui/section-heading";
+import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import type { Dictionary } from "@/lib/dictionaries";
 
 export function Process({ dict }: { dict: Dictionary }) {
@@ -13,24 +14,37 @@ export function Process({ dict }: { dict: Dictionary }) {
           subtitle={process.subtitle}
         />
 
-        <ol className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {process.steps.map((step, i) => (
-            <li
-              key={step.title}
-              className="relative rounded-2xl border border-border bg-background p-7"
-            >
-              <span className="brand-gradient-text font-display text-4xl font-semibold">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-4 text-lg font-semibold text-foreground">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {step.desc}
-              </p>
-            </li>
-          ))}
-        </ol>
+        <div className="relative mt-16">
+          {/* Connecting line (desktop) */}
+          <div
+            className="absolute left-0 right-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent lg:block"
+            aria-hidden
+          />
+          <Stagger
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+            stagger={0.14}
+          >
+            {process.steps.map((step, i) => (
+              <StaggerItem key={step.title}>
+                <div className="group relative h-full rounded-2xl border border-border bg-background p-7 transition-colors hover:border-accent/40">
+                  <div className="flex items-center gap-4">
+                    <span className="relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-surface font-display text-3xl font-semibold">
+                      <span className="brand-gradient-text">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </span>
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {step.desc}
+                  </p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
       </div>
     </section>
   );
