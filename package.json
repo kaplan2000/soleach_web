@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "next build && npx wrangler pages deploy out"
+    "deploy": "next build && npx wrangler pages deploy out --project-name soleach-web --branch main"
   },
   "dependencies": {
     "motion": "^12.23.26",
