@@ -6,7 +6,7 @@ export const siteUrl = "https://soleach.com";
 export const siteConfig = {
   name: "Soleach",
   legalName: "Soleach Dijital Ajans",
-  email: "mustafa@soleach.com",
+  email: "hello@soleach.com",
   /** Welcome / brief form collected from prospective brands. */
   formUrl: "https://forms.gle/UoVu24YimCn4U5AD7",
   formEmbedUrl:
