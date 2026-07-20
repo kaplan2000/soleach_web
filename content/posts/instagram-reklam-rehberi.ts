@@ -3,6 +3,7 @@ import type { BlogPost } from "@/lib/blog";
 export const instagramReklamRehberi: BlogPost = {
   id: "instagram-reklam-rehberi",
   publishedAt: "2026-07-20",
+  updatedAt: "2026-07-20",
   category: "ads",
   locales: {
     tr: {
@@ -10,7 +11,7 @@ export const instagramReklamRehberi: BlogPost = {
       title: "Güzellik markaları için Instagram reklamlarına başlangıç rehberi",
       metaTitle: "Güzellik Markaları için Instagram Reklam Rehberi | Soleach",
       metaDescription:
-        "Kozmetik ve güzellik markası için Instagram reklamlarına nereden başlanır? Piksel kurulumu, huni yapısı, kreatif seçimi, bütçe ve kategoriye özel reklam kuralları — adım adım rehber.",
+        "Kozmetik markası için Instagram reklamlarına nereden başlanır? Piksel kurulumu, huni yapısı, kreatif, bütçe ve Meta'nın kategori kuralları — kaynaklı rehber.",
       excerpt:
         "İlk reklamını yayınlamadan önce kurman gereken altyapı, güzellik kategorisinde işleyen huni yapısı ve yeni başlayanların en sık yaptığı hatalar. 'Gönderiyi öne çıkar' butonundan fazlasını isteyenler için.",
       intro: [
@@ -19,7 +20,7 @@ export const instagramReklamRehberi: BlogPost = {
       ],
       sections: [
         {
-          h2: "Reklamdan önce: altyapını kur",
+          h2: "Reklam vermeden önce neyi kurmuş olman gerekiyor?",
           blocks: [
             {
               type: "p",
@@ -28,16 +29,16 @@ export const instagramReklamRehberi: BlogPost = {
             {
               type: "ul",
               items: [
-                "Meta Piksel'i (ve sunucu taraflı Conversions API'yi) sitene kur; ürün görüntüleme, sepete ekleme ve satın alma olaylarının düştüğünü test et.",
+                "Meta Piksel'i ve sunucu taraflı [Conversions API'yi](https://developers.facebook.com/docs/marketing-api/conversions-api/) birlikte kur; ürün görüntüleme, sepete ekleme ve satın alma olaylarının düştüğünü test et. Meta, Conversions API'yi sunucundan gelen olayları reklam hedeflemesini optimize etmek, sonuç başı maliyeti düşürmek ve ölçüm yapmak için ilettiği bir bağlantı olarak tanımlıyor; sunucu olayları piksel olaylarıyla aynı veri kümesine bağlanıp benzer şekilde işleniyor.",
                 "Instagram hesabını profesyonel hesaba çevir ve bir Business Manager / İşletme Portföyü altında topla; reklam hesabını kişisel profilden yönetme.",
-                "E-ticaret kullanıyorsan ürün kataloğunu bağla — dinamik yeniden pazarlama ve koleksiyon reklamları buna dayanır.",
+                "E-ticaret kullanıyorsan ürün kataloğunu bağla: Meta, [Advantage+ katalog reklamları](https://www.facebook.com/business/ads/meta-advantage-plus/catalog-ads/) için ön koşul olarak bir kataloğa ürün eklemeyi ve piksel ya da Conversions API gibi bir veri kaynağına bağlanmayı şart koşuyor. Yeniden pazarlama bu formatın iki kitle seçeneğinden biri.",
                 "Profilini reklam trafiğine hazırla: bio, öne çıkanlar ve son gönderiler; reklamdan gelen ziyaretçinin göreceği ilk vitrindir.",
               ],
             },
           ],
         },
         {
-          h2: "Güzellik kategorisinde işleyen huni yapısı",
+          h2: "Güzellik kategorisinde nasıl bir huni yapısı kurmalısın?",
           blocks: [
             {
               type: "p",
@@ -60,12 +61,12 @@ export const instagramReklamRehberi: BlogPost = {
             },
             {
               type: "p",
-              text: "Yeni ve küçük bütçeli bir hesapta bu üç katmanı ilk günden ayrı ayrı kurmak şart değil; Meta'nın geniş hedeflemeli, sadeleştirilmiş kampanya yapıları küçük bütçede genellikle daha stabil öğrenir. Önemli olan mantığı bilmek: farklı aşamadaki insana farklı mesaj.",
+              text: "Yeni ve küçük bütçeli bir hesapta bu üç katmanı ilk günden ayrı ayrı kurmak şart değil — hatta sadeleştirmek için Meta'nın kendi gerekçesi var. Meta, yüksek reklam hacminden kaçınmayı öneriyor: çok sayıda reklam ve reklam seti oluşturulduğunda yayınlama sistemi her biri hakkında daha az şey öğreniyor; benzer reklam setlerini birleştirdiğinde öğrenmeleri de birleştirmiş oluyorsun ([Meta İşletme Yardım Merkezi](https://www.facebook.com/business/help/112167992830700)). Önemli olan mantığı bilmek: farklı aşamadaki insana farklı mesaj — ama bunu bütçenin taşıyabileceği kadar az sayıda reklam setiyle yapmak.",
             },
           ],
         },
         {
-          h2: "Kreatif: bu kategoride neyin işlediğini biliyoruz sanma, test et",
+          h2: "Kreatifte neyin işlediğini nasıl bulursun?",
           blocks: [
             {
               type: "p",
@@ -82,12 +83,20 @@ export const instagramReklamRehberi: BlogPost = {
             },
             {
               type: "p",
-              text: "Kategoriye özel kritik bir not: kozmetik ve kişisel bakım, reklam politikalarının hassas olduğu bir alan. Abartılı sonuç vaatleri, tedavi/tıbbi etki iddiaları ve kişisel özelliklere doğrudan gönderme yapan ifadeler ('cildindeki lekelerden utanıyor musun?' gibi) reklamının reddedilmesine, tekrarında hesabının kısıtlanmasına yol açabilir. Önce-sonra kurguları da platform politikalarına takılabilir — iddiayı her zaman kanıtlayabileceğin ve politikaya uygun şekilde kur.",
+              text: "Kategoriye özel kritik bir not: kozmetik ve kişisel bakım, reklam politikalarının hassas olduğu bir alan ve kurallar Meta'nın Şeffaflık Merkezi'nde yazılı. Kişisel özellikler politikası, reklamların bir kişinin ırk, din, yaş, cinsel yönelim, engellilik ya da fiziksel/zihinsel sağlık durumu (tıbbi durumlar dâhil) gibi özelliklerini doğrudan veya dolaylı olarak öne sürmesini ya da ima etmesini yasaklıyor ([Meta Şeffaflık Merkezi](https://transparency.meta.com/policies/ad-standards/objectionable-content/privacy-violations-personal-attributes/)). 'Cildindeki lekelerden utanıyor musun?' tarzı bir açılış tam da bu sınırın üzerinde geziniyor.",
+            },
+            {
+              type: "p",
+              text: "Önce-sonra görsellerinde ise yaygın bir yanlış bilgi var: yasak topyekûn değil. Meta'nın Sağlık ve Wellness standardı yan yana karşılaştırmayı iki başlıkta yasaklıyor — kilo verme ürünlerinde dönüşüm görselleri ve Botoks, dolgu gibi kırışıklık/yaşlanma karşıtı işlemlerde. Buna karşılık aynı standart, 18 yaş ve üzerini hedefleyen reklamlarda genel kozmetik ürünlerinin, işlemlerinin ve ameliyatlarının önce-sonra dönüşümü göstermesine, olumsuz benlik algısı taktikleri kullanılmaması koşuluyla izin veriyor. Yaşlanma karşıtı ürünlerde ise yakın plan görsellere izin var ama görseller zaman içindeki gerçekçi sonucu yansıtmalı ve yan yana karşılaştırma içermemeli ([Meta Şeffaflık Merkezi](https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/)). Yani makyaj önce-sonrası ile estetik işlem önce-sonrası aynı kategoride değil — ama izin, hedeflemeyi ve dili doğru kurmana bağlı.",
+            },
+            {
+              type: "p",
+              text: "Beden algısı maddesi de doğrudan bu kategoriyi ilgilendiriyor: aynı standart, insanların görünüşleri hakkında kötü hissetmesine yol açabilecek, güvensizlikleri belirli güzellik standartlarına uyma yönünde istismar eden, olumsuz beden algısını pekiştiren ya da beden utancı içeren mesajları yasaklıyor. Pratik çeviri: ürünü, kullanıcının kendisiyle ilgili bir eksikliği kapatma vaadi üzerinden değil, somut bir fayda üzerinden anlat.",
             },
           ],
         },
         {
-          h2: "Bütçe ve beklenti: gerçekçi başla",
+          h2: "Ne kadar bütçeyle başlamalı, sonucu ne zaman değerlendirmelisin?",
           blocks: [
             {
               type: "p",
@@ -96,8 +105,9 @@ export const instagramReklamRehberi: BlogPost = {
             {
               type: "ul",
               items: [
-                "İlk haftaları öğrenme dönemi olarak gör: sistemin ve senin veri toplaması gerekir; ilk günlerdeki dalgalanmaya bakıp gün aşırı kampanya kapatmak en yaygın hatadır.",
-                "Bütçeni test edebileceğin kadar sade tut: tek kampanya, birkaç kreatif varyasyonu; on kampanyaya bölünmüş küçük bütçe hiçbir yerde öğrenemez.",
+                "İlk haftaları öğrenme dönemi olarak gör — bu Meta'nın tanımlı bir aşaması. Meta'ya göre reklam setleri öğrenme aşamasından genellikle son önemli düzenlemeden sonraki hafta içinde yaklaşık 50 sonuç aldıklarında çıkıyor ve bu aşamada reklam setleri daha az stabil oluyor, genellikle daha yüksek CPA görüyor ([Meta İşletme Yardım Merkezi](https://www.facebook.com/business/help/112167992830700)).",
+                "Öğrenme aşamasındayken düzenleme yapma: Meta, bu dönemde yapılan düzenlemelerin öğrenmeyi sıfırladığını ve sistemin optimizasyon kabiliyetini geciktirdiğini açıkça söylüyor. Gün aşırı kampanya kapatıp açmak da tam olarak bu sıfırlamayı tetikliyor.",
+                "Bütçeni test edebileceğin kadar sade tut: tek kampanya, birkaç kreatif varyasyonu; on kampanyaya bölünmüş küçük bütçe hiçbir yerde öğrenemez. Meta da gerçekçi bütçe kullanmayı öneriyor — çok küçük ya da şişirilmiş bir bütçe, yayınlama sistemine kimin için optimize etmesi gerektiğine dair hatalı bir gösterge veriyor.",
                 "Karar metriğini baştan seç: e-ticarette genellikle ROAS ve satın alma başı maliyet (CPA); tıklama ve beğeni sayısı karar metriği değildir.",
                 "Kâr marjından geriye doğru hesapla: hangi CPA'de kârda olduğunu bilmeden 'reklam çalışıyor mu' sorusuna cevap veremezsin.",
               ],
@@ -105,7 +115,7 @@ export const instagramReklamRehberi: BlogPost = {
           ],
         },
         {
-          h2: "En sık yapılan 5 başlangıç hatası",
+          h2: "Yeni başlayanlar en çok hangi hataları yapıyor?",
           blocks: [
             {
               type: "ul",
@@ -123,7 +133,7 @@ export const instagramReklamRehberi: BlogPost = {
       faq: [
         {
           q: "Instagram reklamlarına minimum ne kadar bütçeyle başlanır?",
-          a: "Platform teknik olarak çok düşük günlük bütçelere izin verir; ama anlamlı veri toplayacak kadar (sistemin dönüşüm olayı biriktirebileceği bir seviye) ayırmak gerekir. Net rakam ürün fiyatına ve marja bağlıdır — sabit bir sihirli sayı söyleyen herkese şüpheyle yaklaş.",
+          a: "Platform teknik olarak çok düşük günlük bütçelere izin verir; ama anlamlı veri toplayacak kadar ayırmak gerekir. Somut bir çıpa şu: Meta'ya göre bir reklam seti öğrenme aşamasından çıkmak için son önemli düzenlemeden sonraki hafta içinde yaklaşık 50 sonuca ihtiyaç duyuyor ([Meta İşletme Yardım Merkezi](https://www.facebook.com/business/help/112167992830700)). Haftada 50 satın alma üretmenin sana kaça mal olacağı ise ürün fiyatına ve marjına bağlı — bu yüzden sabit bir sihirli günlük rakam söyleyen herkese şüpheyle yaklaş.",
         },
         {
           q: "Ajansla mı çalışmalıyım, kendim mi yönetmeliyim?",
@@ -131,11 +141,41 @@ export const instagramReklamRehberi: BlogPost = {
         },
         {
           q: "Reklamlarım neden reddediliyor?",
-          a: "Kozmetikte en yaygın nedenler: kişisel özelliklere gönderme yapan dil, abartılı/tıbbi sonuç vaatleri ve politikaya uymayan önce-sonra kurguları. Metni ve görseli politika diliyle yeniden kurup itiraz etmek çoğu zaman çözer; tekrar eden retler hesap sağlığını etkileyebilir, o yüzden kökten düzeltmek önemli.",
+          a: "Kozmetikte en yaygın nedenler Meta'nın yazılı standartlarında: bir kişinin sağlık durumu dâhil kişisel özelliklerini ima eden dil ([kişisel özellikler politikası](https://transparency.meta.com/policies/ad-standards/objectionable-content/privacy-violations-personal-attributes/)) ve beden algısını olumsuzlayan ya da kilo verme/estetik işlem kategorisinde yan yana önce-sonra gösteren kurgular ([sağlık ve wellness standardı](https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/)). Metni ve görseli politika diliyle yeniden kurup itiraz etmek çoğu zaman çözer; kökten düzeltmek önemli.",
         },
         {
           q: "Sonuçları ne zaman değerlendirmeliyim?",
-          a: "Günlük dalgalanmaya değil, anlamlı bir veri penceresine bak — kampanya öğrenme fazını tamamladıktan sonraki dönem esas alınır. Değerlendirme metriğin de baştan seçtiğin karar metriği (örneğin CPA/ROAS) olmalı, beğeni sayısı değil.",
+          a: "Günlük dalgalanmaya değil, anlamlı bir veri penceresine bak. Meta'nın kendi ifadesiyle öğrenme aşamasında performans daha az stabildir ve sonuçlar gelecekteki performansın göstergesi olmak zorunda değildir ([Meta İşletme Yardım Merkezi](https://www.facebook.com/business/help/112167992830700)); dolayısıyla esas alınacak dönem bu aşama tamamlandıktan sonrasıdır. Değerlendirme metriğin de baştan seçtiğin karar metriği (örneğin CPA/ROAS) olmalı, beğeni sayısı değil.",
+        },
+      ],
+      sources: [
+        {
+          label:
+            "Meta. Öğrenme aşaması hakkında (About the learning phase). Meta İşletme Yardım Merkezi.",
+          url: "https://www.facebook.com/business/help/112167992830700",
+          publisher: "Meta",
+        },
+        {
+          label: "Meta. Conversions API. Meta for Developers.",
+          url: "https://developers.facebook.com/docs/marketing-api/conversions-api/",
+          publisher: "Meta",
+        },
+        {
+          label: "Meta. Advantage+ catalogue ads. Meta for Business.",
+          url: "https://www.facebook.com/business/ads/meta-advantage-plus/catalog-ads/",
+          publisher: "Meta",
+        },
+        {
+          label:
+            "Meta. Privacy Violations and Personal Attributes. Advertising Standards, Transparency Center.",
+          url: "https://transparency.meta.com/policies/ad-standards/objectionable-content/privacy-violations-personal-attributes/",
+          publisher: "Meta Transparency Center",
+        },
+        {
+          label:
+            "Meta. Health and Wellness. Advertising Standards, Transparency Center.",
+          url: "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/",
+          publisher: "Meta Transparency Center",
         },
       ],
       tags: ["Instagram Ads", "Performans pazarlama", "Meta", "Kozmetik"],
@@ -145,7 +185,7 @@ export const instagramReklamRehberi: BlogPost = {
       title: "A beauty brand's starter guide to Instagram advertising",
       metaTitle: "Instagram Ads Starter Guide for Beauty Brands | Soleach",
       metaDescription:
-        "Where does a beauty or cosmetics brand start with Instagram ads? Pixel setup, funnel structure, creative choices, budget and category-specific ad rules — a step-by-step guide.",
+        "Where does a beauty brand start with Instagram ads? Pixel setup, funnel structure, creative, budget and Meta's category rules — a sourced starter guide.",
       excerpt:
         "The infrastructure to set up before your first ad, a funnel structure that fits the beauty category, and the most common beginner mistakes. For anyone who wants more than the 'Boost post' button.",
       intro: [
@@ -154,7 +194,7 @@ export const instagramReklamRehberi: BlogPost = {
       ],
       sections: [
         {
-          h2: "Before the ads: build your foundation",
+          h2: "What do you need in place before running ads?",
           blocks: [
             {
               type: "p",
@@ -163,16 +203,16 @@ export const instagramReklamRehberi: BlogPost = {
             {
               type: "ul",
               items: [
-                "Install the Meta Pixel (and the server-side Conversions API) on your site; test that product views, add-to-carts and purchases actually fire.",
+                "Install the Meta Pixel together with the server-side [Conversions API](https://developers.facebook.com/docs/marketing-api/conversions-api/); test that product views, add-to-carts and purchases actually fire. Meta describes the Conversions API as a connection that sends marketing data from your server to its systems to optimize ad targeting, decrease cost per result and measure outcomes; server events link to the same dataset ID and are processed like Pixel events.",
                 "Switch your Instagram account to a professional account and organize it under a Business Manager / business portfolio; don't run ads off a personal profile.",
-                "If you sell online, connect your product catalog — dynamic retargeting and collection ads depend on it.",
+                "If you sell online, connect your product catalog: Meta lists adding products to a catalog and connecting a data source (the Pixel or Conversions API) as prerequisites for [Advantage+ catalogue ads](https://www.facebook.com/business/ads/meta-advantage-plus/catalog-ads/). Retargeting is one of that format's two audience options.",
                 "Prepare your profile for ad traffic: your bio, highlights and recent posts are the first storefront a visitor from an ad will see.",
               ],
             },
           ],
         },
         {
-          h2: "A funnel structure that fits beauty",
+          h2: "What funnel structure fits a beauty brand?",
           blocks: [
             {
               type: "p",
@@ -195,12 +235,12 @@ export const instagramReklamRehberi: BlogPost = {
             },
             {
               type: "p",
-              text: "On a new account with a small budget you don't have to build all three layers separately from day one; Meta's simplified, broad-targeting campaign structures usually learn more stably on small budgets. What matters is the logic: different message for people at different stages.",
+              text: "On a new account with a small budget you don't have to build all three layers separately from day one — and Meta gives its own reason to simplify. It recommends avoiding high ad volumes: when you create many ads and ad sets, the delivery system learns less about each one, and combining similar ad sets also combines their learnings ([Meta Business Help Center](https://www.facebook.com/business/help/112167992830700)). What matters is the logic: a different message for people at different stages — delivered through as few ad sets as your budget can actually support.",
             },
           ],
         },
         {
-          h2: "Creative: don't assume what works — test it",
+          h2: "How do you find out which creative works?",
           blocks: [
             {
               type: "p",
@@ -217,12 +257,20 @@ export const instagramReklamRehberi: BlogPost = {
             },
             {
               type: "p",
-              text: "A category-specific warning: cosmetics and personal care sit in a sensitive zone of ad policy. Exaggerated result claims, treatment/medical claims, and language that targets personal attributes ('embarrassed by your dark spots?') can get ads rejected — and repeated rejections can restrict the account. Before/after framings can also trip platform policies. Build claims you can substantiate, phrased within policy.",
+              text: "A category-specific warning: cosmetics and personal care sit in a sensitive zone of ad policy, and the rules are written down in Meta's Transparency Center. The personal attributes policy prohibits ads that directly or indirectly assert or imply attributes such as a person's race, religion, age, sexual orientation, disability, or physical or mental health including medical conditions ([Meta Transparency Center](https://transparency.meta.com/policies/ad-standards/objectionable-content/privacy-violations-personal-attributes/)). An opener like 'embarrassed by your dark spots?' hovers right on that line.",
+            },
+            {
+              type: "p",
+              text: "On before/after imagery there's a widespread misconception: the restriction is scoped, not blanket. Meta's Health and Wellness standard prohibits side-by-side comparisons in two places — weight-loss transformations, and wrinkle or anti-aging treatments such as Botox and dermal fillers. The same standard, however, permits ads targeting people 18 and older to show general cosmetic products, procedures and surgeries depicting a before-and-after transformation, provided they don't employ negative self-perception tactics. For anti-aging products, zoomed-in or close-up images are allowed, but they must reflect realistic outcomes over time and must not be side-by-side ([Meta Transparency Center](https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/)). A makeup before/after and a cosmetic-procedure before/after are not the same case — but the permission depends on getting your targeting and your language right.",
+            },
+            {
+              type: "p",
+              text: "The body-image clause applies directly to this category too: the same standard prohibits messaging that could make people feel negatively about the way they look, exploits insecurities to conform to certain beauty standards, reinforces negative body images or features body-shaming. Practical translation: sell the product on a concrete benefit, not on a deficiency the viewer is supposed to feel about themselves.",
             },
           ],
         },
         {
-          h2: "Budget and expectations: start realistic",
+          h2: "What budget should you start with, and when do you judge it?",
           blocks: [
             {
               type: "p",
@@ -231,8 +279,9 @@ export const instagramReklamRehberi: BlogPost = {
             {
               type: "ul",
               items: [
-                "Treat the first weeks as a learning period: both the system and you need data; panicking at early volatility and switching campaigns off is the most common mistake.",
-                "Keep the structure as simple as your budget: one campaign, a few creative variations; a small budget split across ten campaigns learns nothing anywhere.",
+                "Treat the first weeks as a learning period — it's a defined phase at Meta. Ad sets usually exit the learning phase after about 50 results in the week following the ad set's last significant edit, and during that phase ad sets are less stable and usually have a higher CPA ([Meta Business Help Center](https://www.facebook.com/business/help/112167992830700)).",
+                "Don't edit while you're in it: Meta states plainly that editing an ad, ad set or campaign during the learning phase resets learning and delays the delivery system's ability to optimize. Panic-toggling campaigns day to day triggers exactly that reset.",
+                "Keep the structure as simple as your budget: one campaign, a few creative variations; a small budget split across ten campaigns learns nothing anywhere. Meta likewise recommends realistic budgets — a very small or inflated budget gives the delivery system an inaccurate indicator of whom it should optimize for.",
                 "Pick your decision metric up front: for e-commerce that's usually ROAS and cost per purchase (CPA); clicks and likes are not decision metrics.",
                 "Work backwards from margin: without knowing the CPA at which you're profitable, you can't answer whether the ads 'work'.",
               ],
@@ -240,7 +289,7 @@ export const instagramReklamRehberi: BlogPost = {
           ],
         },
         {
-          h2: "The 5 most common beginner mistakes",
+          h2: "Which mistakes do beginners make most often?",
           blocks: [
             {
               type: "ul",
@@ -258,7 +307,7 @@ export const instagramReklamRehberi: BlogPost = {
       faq: [
         {
           q: "What's the minimum budget to start Instagram ads?",
-          a: "The platform technically allows very low daily budgets, but you need enough for the system to accumulate meaningful conversion data. The real number depends on your price point and margin — be skeptical of anyone quoting one magic figure.",
+          a: "The platform technically allows very low daily budgets, but you need enough for the system to accumulate meaningful conversion data. One concrete anchor: Meta says an ad set typically needs about 50 results in the week after its last significant edit to exit the learning phase ([Meta Business Help Center](https://www.facebook.com/business/help/112167992830700)). What producing 50 purchases a week costs you depends on your price point and margin — which is why you should be skeptical of anyone quoting a single magic daily figure.",
         },
         {
           q: "Should I hire an agency or run it myself?",
@@ -266,11 +315,41 @@ export const instagramReklamRehberi: BlogPost = {
         },
         {
           q: "Why do my ads keep getting rejected?",
-          a: "In cosmetics the usual culprits are: language targeting personal attributes, exaggerated or medical result claims, and before/after framings that breach policy. Rewriting the copy and visual within policy language and appealing usually resolves it; repeated rejections can hurt account health, so fix the root cause.",
+          a: "In cosmetics the usual culprits are written into Meta's standards: copy that implies a person's personal attributes including health conditions ([personal attributes policy](https://transparency.meta.com/policies/ad-standards/objectionable-content/privacy-violations-personal-attributes/)), and framings that negatively target body image or use side-by-side before/after imagery in the weight-loss or cosmetic-procedure categories ([health and wellness standard](https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/)). Rewriting the copy and visual within policy language and appealing usually resolves it; fix the root cause.",
         },
         {
           q: "When should I evaluate results?",
-          a: "Look at a meaningful data window, not daily swings — the period after the campaign exits its learning phase is what counts. And evaluate on the decision metric you chose up front (CPA/ROAS), not on likes.",
+          a: "Look at a meaningful data window, not daily swings. In Meta's own words, performance during the learning phase is less stable and those results aren't necessarily indicative of future performance ([Meta Business Help Center](https://www.facebook.com/business/help/112167992830700)) — so the period to judge is the one after that phase completes. And evaluate on the decision metric you chose up front (CPA/ROAS), not on likes.",
+        },
+      ],
+      sources: [
+        {
+          label:
+            "Meta. About the learning phase. Meta Business Help Center.",
+          url: "https://www.facebook.com/business/help/112167992830700",
+          publisher: "Meta",
+        },
+        {
+          label: "Meta. Conversions API. Meta for Developers.",
+          url: "https://developers.facebook.com/docs/marketing-api/conversions-api/",
+          publisher: "Meta",
+        },
+        {
+          label: "Meta. Advantage+ catalogue ads. Meta for Business.",
+          url: "https://www.facebook.com/business/ads/meta-advantage-plus/catalog-ads/",
+          publisher: "Meta",
+        },
+        {
+          label:
+            "Meta. Privacy Violations and Personal Attributes. Advertising Standards, Transparency Center.",
+          url: "https://transparency.meta.com/policies/ad-standards/objectionable-content/privacy-violations-personal-attributes/",
+          publisher: "Meta Transparency Center",
+        },
+        {
+          label:
+            "Meta. Health and Wellness. Advertising Standards, Transparency Center.",
+          url: "https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness/",
+          publisher: "Meta Transparency Center",
         },
       ],
       tags: ["Instagram Ads", "Performance marketing", "Meta", "Cosmetics"],
