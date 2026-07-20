@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n";
 import { getDictionary } from "@/lib/dictionaries";
-import { localeUrl } from "@/lib/site";
+import { localeUrl, siteUrl } from "@/lib/site";
 import { getPosts } from "@/lib/blog";
 
 /** Logical pages, addressed by the route slug ("" = home). */
@@ -64,6 +64,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
   }
+
+  // Language-neutral link-in-bio hub.
+  entries.push({
+    url: `${siteUrl}/links`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.3,
+  });
 
   return entries;
 }

@@ -12,6 +12,7 @@ export const siteConfig = {
   formEmbedUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLScIJpH84oZPedMOseIgi1gm4v8p4iDTZ1gmn7vViyx1juENnQ/viewform?embedded=true",
   social: {
+    youtube: "https://www.youtube.com/@soleachagency",
     instagram: "https://www.instagram.com/soleachagency/",
     tiktok: "https://www.tiktok.com/@soleach.digitalagency",
     facebook: "https://www.facebook.com/profile.php?id=61591831880038",

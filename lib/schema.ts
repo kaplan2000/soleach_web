@@ -23,6 +23,7 @@ export function organizationSchema(locale: Locale) {
       availableLanguage: ["Turkish", "English"],
     },
     sameAs: [
+      siteConfig.social.youtube,
       siteConfig.social.instagram,
       siteConfig.social.tiktok,
       siteConfig.social.facebook,
