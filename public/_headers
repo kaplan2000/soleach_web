@@ -1,4 +1,4 @@
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; frame-src https://docs.google.com https://www.google.com; connect-src 'self'; form-action 'self' https://docs.google.com;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; frame-src https://docs.google.com https://www.google.com https://www.youtube-nocookie.com https://www.youtube.com https://www.instagram.com https://www.tiktok.com; connect-src 'self'; form-action 'self' https://docs.google.com;

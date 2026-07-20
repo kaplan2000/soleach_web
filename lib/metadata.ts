@@ -6,8 +6,12 @@ interface BuildMetadataArgs {
   locale: Locale;
   /** Path after the locale segment, e.g. "" for home or "services". */
   path?: string;
+  /** Per-locale paths for pages whose slug differs by language (blog posts). */
+  pathByLocale?: Partial<Record<Locale, string>>;
   title: string;
   description: string;
+  /** Open Graph type — blog posts use "article". */
+  ogType?: "website" | "article";
 }
 
 /**
@@ -17,17 +21,20 @@ interface BuildMetadataArgs {
 export function buildMetadata({
   locale,
   path = "",
+  pathByLocale,
   title,
   description,
+  ogType = "website",
 }: BuildMetadataArgs): Metadata {
-  const canonical = localeUrl(locale, path);
+  const pathFor = (l: Locale) => pathByLocale?.[l] ?? path;
+  const canonical = localeUrl(locale, pathFor(locale));
 
   const languages: Record<string, string> = {};
   for (const l of locales) {
-    languages[localeHtmlLang[l]] = localeUrl(l, path);
+    languages[localeHtmlLang[l]] = localeUrl(l, pathFor(l));
   }
   // x-default points at the primary (Turkish) locale.
-  languages["x-default"] = localeUrl("tr", path);
+  languages["x-default"] = localeUrl("tr", pathFor("tr"));
 
   return {
     title,
@@ -39,7 +46,7 @@ export function buildMetadata({
       url: canonical,
       siteName: siteConfig.name,
       locale: localeHtmlLang[locale],
-      type: "website",
+      type: ogType,
     },
     twitter: {
       card: "summary_large_image",

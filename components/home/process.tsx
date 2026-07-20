@@ -40,6 +40,19 @@ export function Process({ dict }: { dict: Dictionary }) {
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     {step.desc}
                   </p>
+                  <div className="mt-4 border-t border-border pt-4">
+                    <p className="text-[11px] font-semibold uppercase tracking-wide text-accent">
+                      {process.deliverablesLabel}
+                    </p>
+                    <ul className="mt-2 space-y-1.5">
+                      {step.deliverables.map((d) => (
+                        <li key={d} className="flex items-start gap-2 text-xs leading-relaxed text-muted">
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden />
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </StaggerItem>
             ))}

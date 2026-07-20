@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/motion/reveal";
 import type { Dictionary } from "@/lib/dictionaries";
@@ -42,21 +41,20 @@ export function Faq({ dict }: { dict: Dictionary }) {
                       </span>
                     </button>
                   </h3>
-                  <AnimatePresence initial={false}>
-                    {open && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-6 pb-5 text-sm leading-relaxed text-muted">
-                          {item.a}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {/* Answers stay mounted so the full Q&A text ships in the
+                      prerendered HTML for search & AI crawlers; the grid-rows
+                      transition reproduces the open/close animation. */}
+                  <div
+                    className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+                      open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-6 pb-5 text-sm leading-relaxed text-muted">
+                        {item.a}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               );
             })}

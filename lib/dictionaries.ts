@@ -33,15 +33,17 @@ export interface Dictionary {
     home: string;
     services: string;
     about: string;
+    blog: string;
     contact: string;
     cta: string;
   };
-  routes: { services: string; about: string; contact: string };
+  routes: { services: string; about: string; contact: string; blog: string };
   meta: {
     home: { title: string; description: string };
     services: { title: string; description: string };
     about: { title: string; description: string };
     contact: { title: string; description: string };
+    blog: { title: string; description: string };
   };
   home: {
     hero: {
@@ -62,7 +64,8 @@ export interface Dictionary {
       eyebrow: string;
       title: string;
       subtitle: string;
-      steps: { title: string; desc: string }[];
+      deliverablesLabel: string;
+      steps: { title: string; desc: string; deliverables: string[] }[];
     };
     whyUs: {
       eyebrow: string;
@@ -95,6 +98,15 @@ export interface Dictionary {
     emailDesc: string;
     orLabel: string;
   };
+  blogPage: {
+    hero: { eyebrow: string; title: string; subtitle: string };
+    readingTimeSuffix: string;
+    updatedLabel: string;
+    faqTitle: string;
+    sourcesTitle: string;
+    relatedServiceLabel: string;
+    backToBlog: string;
+  };
   footer: {
     tagline: string;
     servicesHeading: string;
@@ -110,10 +122,11 @@ const tr: Dictionary = {
     home: "Ana Sayfa",
     services: "Hizmetler",
     about: "Hakkımızda",
+    blog: "Blog",
     contact: "İletişim",
     cta: "Hadi tanışalım",
   },
-  routes: { services: "services", about: "about", contact: "contact" },
+  routes: { services: "services", about: "about", contact: "contact", blog: "blog" },
   meta: {
     home: {
       title: "Soleach | Güzellik Markaları için Dijital Reklam Ajansı",
@@ -134,6 +147,11 @@ const tr: Dictionary = {
       title: "İletişim | Soleach",
       description:
         "Markanı konuşalım. Formu doldur, 24 saat içinde sana özel bir büyüme planıyla dönelim. Taahhüt yok.",
+    },
+    blog: {
+      title: "Blog | Güzellik Markaları için Dijital Büyüme Rehberleri | Soleach",
+      description:
+        "Güzellik ve kozmetik markaları için reklam, içerik, SEO ve GEO rehberleri. Uydurma formül yok; test edilebilir, dürüst ve uygulanabilir bilgi.",
     },
   },
   home: {
@@ -180,22 +198,43 @@ const tr: Dictionary = {
       title: "Tahmin yok. Sadece net bir yol.",
       subtitle:
         "Her adımda ne yaptığımızı, neden yaptığımızı ve ne getirdiğini görürsün. Sürpriz sevmeyiz — iyi olanları hariç.",
+      deliverablesLabel: "Bu adımda eline geçenler",
       steps: [
         {
           title: "Tanışma",
           desc: "Markanı, ürünlerini ve kime seslendiğini dinliyoruz. Rakipleri ve pazarı okuyup fırsatları masaya koyuyoruz.",
+          deliverables: [
+            "Ücretsiz tanışma görüşmesi (video ya da yüz yüze)",
+            "Mevcut hesapların ve sitenin ilk değerlendirmesi",
+            "Rakip ve pazar gözlemlerinin özeti",
+          ],
         },
         {
           title: "Strateji",
           desc: "Bütçe, kanal ve mesaj planını birlikte kuruyoruz. Net hedefler, net bir yol haritası — havada laf yok.",
+          deliverables: [
+            "Yazılı büyüme yol haritası ve kanal planı",
+            "Bütçe dağılımı ve hedef metrikler (ROAS, CPA)",
+            "İçerik ve kampanya takvimi taslağı",
+          ],
         },
         {
           title: "Üretim & Yayın",
           desc: "Durduran kreatifleri üretip kampanyaları yayına alıyoruz. Doğru kitleye, doğru anda, doğru sözle.",
+          deliverables: [
+            "Onayına sunulan kreatifler ve reklam metinleri",
+            "Piksel / ölçüm kurulumunun doğrulanması",
+            "Yayına alınan kampanyaların kurulum özeti",
+          ],
         },
         {
           title: "Optimizasyon",
           desc: "Veriyi sürekli izliyor, test ediyoruz. Bütçeyi en çok kazandıran yere yönlendirip büyümeyi ölçeğe taşıyoruz.",
+          deliverables: [
+            "Düzenli, sade performans raporu",
+            "Yapılan testler ve sonuçlarının kaydı",
+            "Bir sonraki dönem için net öneri listesi",
+          ],
         },
       ],
     },
@@ -380,6 +419,20 @@ const tr: Dictionary = {
     emailDesc: "Form yerine doğrudan yazmak istersen, kapımız açık.",
     orLabel: "veya",
   },
+  blogPage: {
+    hero: {
+      eyebrow: "Blog",
+      title: "Güzellik markaları için büyüme rehberleri",
+      subtitle:
+        "Reklam, içerik, SEO ve GEO üzerine dürüst, uygulanabilir yazılar. Sihirli formül satmıyoruz; ne işe yarıyorsa onu, neden yaradığıyla birlikte anlatıyoruz.",
+    },
+    readingTimeSuffix: "dk okuma",
+    updatedLabel: "Güncellendi",
+    faqTitle: "Sık sorulan sorular",
+    sourcesTitle: "Kaynaklar",
+    relatedServiceLabel: "İlgili hizmetimiz",
+    backToBlog: "Tüm yazılar",
+  },
   footer: {
     tagline:
       "Güzellik ve kadın ürünleri markaları için dijital reklam ajansı. Estetiği satışa çeviriyoruz.",
@@ -396,10 +449,11 @@ const en: Dictionary = {
     home: "Home",
     services: "Services",
     about: "About",
+    blog: "Blog",
     contact: "Contact",
     cta: "Let's talk",
   },
-  routes: { services: "services", about: "about", contact: "contact" },
+  routes: { services: "services", about: "about", contact: "contact", blog: "blog" },
   meta: {
     home: {
       title: "Soleach | Digital Advertising Agency for Beauty Brands",
@@ -420,6 +474,11 @@ const en: Dictionary = {
       title: "Contact | Soleach",
       description:
         "Let's talk about your brand. Fill out the form and we'll come back within 24 hours with a plan made for you. No commitment.",
+    },
+    blog: {
+      title: "Blog | Digital Growth Guides for Beauty Brands | Soleach",
+      description:
+        "Guides on advertising, content, SEO and GEO for beauty and cosmetics brands. No made-up formulas — honest, testable, actionable knowledge.",
     },
   },
   home: {
@@ -466,22 +525,43 @@ const en: Dictionary = {
       title: "No guesswork. Just a clear path.",
       subtitle:
         "At every step you see what we do, why we do it and what it returns. We don't like surprises — except the good ones.",
+      deliverablesLabel: "What you get at this step",
       steps: [
         {
           title: "Get to know you",
           desc: "We listen to your brand, your products and who you speak to, then read the market and competitors to put opportunities on the table.",
+          deliverables: [
+            "A free intro call (video or in person)",
+            "A first review of your accounts and website",
+            "A summary of competitor and market observations",
+          ],
         },
         {
           title: "Strategy",
           desc: "We build the budget, channel and messaging plan together. Clear goals, a clear roadmap — no fluff.",
+          deliverables: [
+            "A written growth roadmap and channel plan",
+            "Budget allocation and target metrics (ROAS, CPA)",
+            "A draft content and campaign calendar",
+          ],
         },
         {
           title: "Production & Launch",
           desc: "We produce scroll-stopping creative and launch the campaigns — right audience, right moment, right words.",
+          deliverables: [
+            "Creatives and ad copy submitted for your approval",
+            "Verified pixel / measurement setup",
+            "A setup summary of every campaign that goes live",
+          ],
         },
         {
           title: "Optimization",
           desc: "We track and test relentlessly, steering budget to what earns most and taking your growth to scale.",
+          deliverables: [
+            "A regular, readable performance report",
+            "A log of the tests we ran and what they showed",
+            "A clear list of recommendations for the next period",
+          ],
         },
       ],
     },
@@ -665,6 +745,20 @@ const en: Dictionary = {
     emailTitle: "Email",
     emailDesc: "Prefer writing directly instead of the form? Our door is open.",
     orLabel: "or",
+  },
+  blogPage: {
+    hero: {
+      eyebrow: "Blog",
+      title: "Growth guides for beauty brands",
+      subtitle:
+        "Honest, actionable writing on advertising, content, SEO and GEO. We don't sell magic formulas — we explain what works, and why it works.",
+    },
+    readingTimeSuffix: "min read",
+    updatedLabel: "Updated",
+    faqTitle: "Frequently asked questions",
+    sourcesTitle: "Sources",
+    relatedServiceLabel: "Related service",
+    backToBlog: "All posts",
   },
   footer: {
     tagline:

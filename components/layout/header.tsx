@@ -31,6 +31,7 @@ export function Header({
     { href: base, label: dict.nav.home },
     { href: `${base}/${dict.routes.services}`, label: dict.nav.services },
     { href: `${base}/${dict.routes.about}`, label: dict.nav.about },
+    { href: `${base}/${dict.routes.blog}`, label: dict.nav.blog },
     { href: contactHref, label: dict.nav.contact },
   ];
 

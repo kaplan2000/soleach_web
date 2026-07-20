@@ -24,6 +24,20 @@ Makeup, skincare, cosmetics and women's product brands — from newly launched b
 
 - Home (TR): https://soleach.com/tr
 - Home (EN): https://soleach.com/en
-- Services: https://soleach.com/tr/services
-- About: https://soleach.com/tr/about
-- Contact: https://soleach.com/tr/contact
+- Services (TR): https://soleach.com/tr/services
+- Services (EN): https://soleach.com/en/services
+- About (TR): https://soleach.com/tr/about
+- About (EN): https://soleach.com/en/about
+- Contact (TR): https://soleach.com/tr/contact
+- Contact (EN): https://soleach.com/en/contact
+- Blog (TR): https://soleach.com/tr/blog
+- Blog (EN): https://soleach.com/en/blog
+
+## Blog
+
+Guides on advertising, content, SEO and GEO for beauty and cosmetics brands, in Turkish and English. Notable posts:
+
+- What is GEO? (TR): https://soleach.com/tr/blog/geo-nedir-yapay-zeka-gorunurlugu-rehberi
+- What is GEO? (EN): https://soleach.com/en/blog/what-is-geo-generative-engine-optimization-guide
+- Instagram ads starter guide (TR): https://soleach.com/tr/blog/guzellik-markalari-icin-instagram-reklam-rehberi
+- Instagram ads starter guide (EN): https://soleach.com/en/blog/instagram-ads-guide-for-beauty-brands
