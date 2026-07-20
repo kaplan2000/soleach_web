@@ -2,7 +2,7 @@ import type { BlogPost } from "@/lib/blog";
 
 export const instagramReklamRehberi: BlogPost = {
   id: "instagram-reklam-rehberi",
-  publishedAt: "2026-07-20",
+  publishedAt: "2026-07-19",
   updatedAt: "2026-07-20",
   category: "ads",
   locales: {
